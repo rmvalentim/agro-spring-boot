@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.rafaelvalentim.festa.model;
+package com.rafaelvalentim.agro.model;
 
 import java.io.Serializable;
 import javax.persistence.Entity;

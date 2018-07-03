@@ -1,12 +1,12 @@
-package com.rafaelvalentim.festa;
+package com.rafaelvalentim.agro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FestaApplication {
+public class AgroApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FestaApplication.class, args);
+		SpringApplication.run(AgroApplication.class, args);
 	}
 }

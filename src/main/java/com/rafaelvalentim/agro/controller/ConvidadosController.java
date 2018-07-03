@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.rafaelvalentim.festa.controller;
+package com.rafaelvalentim.agro.controller;
 
-import com.rafaelvalentim.festa.model.Convidado;
-import com.rafaelvalentim.festa.model.Convidados;
+import com.rafaelvalentim.agro.model.Convidado;
+import com.rafaelvalentim.agro.model.Convidados;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

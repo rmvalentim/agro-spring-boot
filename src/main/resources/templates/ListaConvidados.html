@@ -10,41 +10,44 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
-        <form class="form-inline" method="POST" th:object="${convidado}" th:action="@{/convidados}" style="margin: 20px 0">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nome" th:field="*{nome}"/>
-                <input type="text" class="form-control" placeholder="Acompanhantes" th:field="*{quantidadeAcompanhantes}"/>
-                <button type="submit" class="btn btn-primary">Adicionar</button>        
-
-
-                <div class="panel panel-default" style="margin: 10px">
-                    <div class="panel-heading">
-                        <h1  class="panel-title">
-                            Lista de convidados
-                        </h1>
-                    </div>
-                    <div class="panel-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        Nome
-                                    </th>
-                                    <th>
-                                        Acompanhantes
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr th:each="convidado : ${convidados}">
-                                    <td th:text="${convidado.nome}"></td>
-                                    <td th:text="${convidado.quantidadeAcompanhantes}"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+        <div class="container-fluid">
+            <form class="form-inline" method="POST" th:object="${convidado}" th:action="@{/convidados}" style="margin: 20px 0">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nome" th:field="*{nome}"/>
+                    <input type="text" class="form-control" placeholder="Acompanhantes" th:field="*{quantidadeAcompanhantes}"/>
+                    <button type="submit" class="btn btn-primary">Adicionar</button>        
                 </div>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-                </body>
-                </html>
+            </form>
+
+            <div class="panel panel-default" style="margin: 10px">
+                <div class="panel-heading">
+                    <h1  class="panel-title">
+                        Lista de convidados
+                    </h1>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Nome
+                                </th>
+                                <th>
+                                    Acompanhantes
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="convidado : ${convidados}">
+                                <td th:text="${convidado.nome}"></td>
+                                <td th:text="${convidado.quantidadeAcompanhantes}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>

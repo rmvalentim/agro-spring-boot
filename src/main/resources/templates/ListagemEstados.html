@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns= "http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width"/>
+        <title>Estados</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <form class="form-inline" method="POST" th:object="${estado}" th:action="@{/estados}" style="margin: 20px 0">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Codigo" th:field="*{codigo}"/>
+                    <input type="text" class="form-control" placeholder="Descricao" th:field="*{descricao}"/>
+                    <button type="submit" class="btn btn-primary">Adicionar</button>        
+                </div>
+            </form>
+            <div class="panel panel-default" style="margin: 10px">
+                <div class="panel-heading">
+                    <h1  class="panel-title">
+                        Lista de Estados
+                    </h1>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Descrição</th>
+                                <th>Editar</th>
+                                <th>Excluir</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="estado : ${estados}">
+                                <td th:text="${estado.codigo}">Cell</td>
+                                <td th:text="${estado.descricao}">Cell</td>
+                                <td>X</td>
+                                <td><a class="waves-effect waves-light btn-small" th:href="@{/excluirEstado(id=${estado.id})}"><i class="material-icons left">delete</i></a></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+                    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+                    </body>
+
+
+                    </html>
+
+                    </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    </body>
+</html>
