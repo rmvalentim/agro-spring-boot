@@ -14,4 +14,5 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface EstadoRepository extends CrudRepository<Estado, String> {
     Estado findById(long Id);
+ 
 }

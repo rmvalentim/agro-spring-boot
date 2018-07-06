@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns= "http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width"/>
+        <title>Estados</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    </head>
+    <body>
+
+        <div class="container-fluid">
+            <form class="form-inline" method="POST" th:object="${estado}" th:action="@{/estados/adicionar(id=${estado.id})}" style="margin: 20px 0">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Codigo" th:field="*{codigo}"/>
+                    <input type="text" class="form-control" placeholder="Descricao" th:field="*{descricao}"/>
+                    <button type="submit" class="btn btn-primary">Adicionar</button>        
+                </div>
+            </form>
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>
