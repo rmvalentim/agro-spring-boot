@@ -70,8 +70,8 @@ public class EstadosController {
     }
    
     @PostMapping("estados/atualizar{id}")
-    public String confirmaAtualizar(Long id) {
-        Estado estado = er.findById(id);
+    public String confirmaAtualizar(Estado estado, Long id) {
+        estado.setId(id);
         this.estados.save(estado);
         return "redirect:/estados";
     }
