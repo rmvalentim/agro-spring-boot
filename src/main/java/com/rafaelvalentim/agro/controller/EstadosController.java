@@ -5,20 +5,13 @@
  */
 package com.rafaelvalentim.agro.controller;
 
-
-
 import com.rafaelvalentim.agro.model.Estado;
 import com.rafaelvalentim.agro.model.Estados;
 import com.rafaelvalentim.agro.repository.EstadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -33,32 +26,6 @@ public class EstadosController {
     
     @Autowired
     private EstadoRepository er;
-    
-    /*
-        
-    @PostMapping("/estados")
-    public String salvarEstado(Estado estado){
-        this.estados.save(estado);
-        return "redirect:/estados";
-    }
-    
-    @RequestMapping("/deletarEstado")
-    public ModelAndView editarEstado(long id){
-        ModelAndView mv = new ModelAndView("EditarEstados");
-        mv.addObject("estado", er.findById(id));
-	return mv;
-    }
-       
-    @RequestMapping("/deletarEstado")
-    public String excluirEstado(long id){
-	Estado estado = er.findById(id);
-	er.delete(estado);
-	return "redirect:/estados";
-    }    
-    
-    */
-    
-    // Tentativa de ter um padrão
        
     @GetMapping("estados")
     public ModelAndView listarTodos() {
