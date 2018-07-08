@@ -7,12 +7,12 @@ package com.rafaelvalentim.agro.controller;
 
 import com.rafaelvalentim.agro.model.Estado;
 import com.rafaelvalentim.agro.model.Estados;
-import com.rafaelvalentim.agro.repository.EstadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import com.rafaelvalentim.agro.dao.EstadoDAO;
 
 /**
  *
@@ -25,11 +25,11 @@ public class EstadosController {
     private Estados estados;
     
     @Autowired
-    private EstadoRepository er;
+    private EstadoDAO estadoDao;
        
     @GetMapping("estados")
     public ModelAndView listarTodos() {
-        ModelAndView mv = new ModelAndView("ListarEstados");
+        ModelAndView mv = new ModelAndView("estados/ListarEstados");
         mv.addObject("estados", estados.findAll());
         mv.addObject(new Estado());
         return mv;
@@ -37,29 +37,29 @@ public class EstadosController {
     
     @GetMapping("estados/detalhar{id}")
     public ModelAndView detalhe(Long id) {
-        ModelAndView mv = new ModelAndView("DetalharEstado");
-        mv.addObject("estado", er.findById(id));
+        ModelAndView mv = new ModelAndView("estados/DetalharEstado");
+        mv.addObject("estado", estadoDao.findById(id));
 	return mv;
     }
  
     @GetMapping("estados/adicionar")
     public ModelAndView adicionar() {
-        ModelAndView mv = new ModelAndView("AdicionarEstado");
+        ModelAndView mv = new ModelAndView("estados/AdicionarEstado");
         mv.addObject(new Estado());
 	return mv;
     }
 
     @GetMapping("estados/atualizar{id}")
     public ModelAndView atualizar(Long id) {
-        ModelAndView mv = new ModelAndView("AtualizarEstado");
-        mv.addObject("estado", er.findById(id));
+        ModelAndView mv = new ModelAndView("estados/AtualizarEstado");
+        mv.addObject("estado", estadoDao.findById(id));
 	return mv;
     }
 
     @GetMapping("estados/excluir{id}")
     public ModelAndView excluir(Long id) {
-        ModelAndView mv = new ModelAndView("ExcluirEstado");
-        mv.addObject("estado", er.findById(id));
+        ModelAndView mv = new ModelAndView("estados/ExcluirEstado");
+        mv.addObject("estado", estadoDao.findById(id));
 	return mv;
     }
 
@@ -78,7 +78,7 @@ public class EstadosController {
  
     @PostMapping("estados/excluir{id}")
     public String confirmaExcluir(Long id) {        
-	Estado estado = er.findById(id);
+	Estado estado = estadoDao.findById(id);
         this.estados.delete(estado);
 	return "redirect:/estados";
         

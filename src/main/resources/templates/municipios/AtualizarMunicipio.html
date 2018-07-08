@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns= "http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width"/>
+        <title>Municipios</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    </head>
+    <body>
+
+        <div class="container">
+            <h2>Atualizar municipio:</h2>
+            <form method="POST" th:object="${municipio}" th:action="@{/municipios/adicionar(id=${municipio.id})}" style="margin: 20px 0">
+                <div class="form-group">    
+                    <label for="descricao">Descrição</label>
+                    <input type="text" id="descricao" class="form-control" placeholder="Descricao" th:field="*{descricao}"/>
+                    <small class="form-text text-muted">Campo obrigatório</small>                                
+                </div>                
+                <div class="form-group">
+                    <label for="codigoIbge">Código IBGE</label>
+                    <input type="text" id="codigoIbge" class="form-control" placeholder="Codigo IBGE" th:field="*{codigoIbge}"/>
+                    <small class="form-text text-muted">Campo obrigatório</small>                
+                </div>   
+                <div class="form-group">
+                    <label>Estado</label>
+                    <select name="estado" class="form-control">
+                        <option value="">Selecione o estado</option>
+                        <option th:each="estado : ${estados}"
+                                th:value="${estado.id}" 
+                                th:text="${estado.descricao}"
+                                th:selected="${estado.id == municipio.estado.id}"></option>
+                    </select>
+                    <small class="form-text text-muted">Campo obrigatório</small>                
+                </div>     
+
+                <div class="form-group">
+                    <a class="btn btn-danger" th:href="@{/municipios}">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Atualizar</button> 
+                </div> 
+        </div> 
+        </form>           
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>

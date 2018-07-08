@@ -12,16 +12,18 @@ and open the template in the editor.
         <title>Estados</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
-    <body>
-
+    <body>        
         <div class="container-fluid">
-            <form class="form-inline" method="POST" th:object="${estado}" th:action="@{/estados/adicionar(id=${estado.id})}" style="margin: 20px 0">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Codigo" th:field="*{codigo}"/>
-                    <input type="text" class="form-control" placeholder="Descricao" th:field="*{descricao}"/>
-                    <button type="submit" class="btn btn-primary">Adicionar</button>        
-                </div>
-            </form>
+            <div th:each="estado : ${estado}" class="container detalhesEvento">        
+                <h2>Detalhar estado:</h2>
+                <label for="id">Id</label>
+                <p th:text="${estado.id}" id="id"></p>
+                <label for="codigo">Código</label>
+                <p th:text="${estado.codigo}" id="codigo"></p>
+                <label for="descricao">Descrição</label>
+                <p th:text="${estado.descricao}" id="descricao"></p>
+                <a class="btn btn-danger" th:href="@{/estados}">Cancelar</a>
+            </div>            
         </div>
 
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns= "http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width"/>
+        <title>Municipios</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    </head>
+    <body>        
+        <div class="container-fluid">
+            <div th:each="municipio : ${municipio}" class="container detalhesEvento">        
+                <h2>Excluir municipio</h2>
+                <label for="id">Id</label>
+                <p th:text="${municipio.id}" id="id"></p>
+                <label for="descricao">Descrição</label>
+                <p th:text="${municipio.descricao}" id="descricao"></p>
+                <label for="codigo">Código IBGE</label>
+                <p th:text="${municipio.codigoIbge}" id="codigoIbge"></p>
+                <label for="estado">Estado</label>
+                <p th:text="${municipio.estado.descricao}" id="estado"></p>
+                <form class="form-inline" method="POST" th:action="@{/municipios/excluir(id=${municipio.id})}" style="margin: 20px 0">
+                    <div class="form-group">
+                        <a class="btn btn-danger" th:href="@{/municipios}">Cancelar</a>
+                        <button type="submit" class="btn btn-success">Excluir</button> 
+                    </div> 
+                </form>  
+            </div>            
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>

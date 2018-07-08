@@ -17,13 +17,17 @@ and open the template in the editor.
         <div class="container-fluid">
             <div th:each="estado : ${estado}" class="container detalhesEvento">
                 <h2>Excluir estado:</h2>
-                <p th:text="${estado.id}"</p>
-                <p th:text="${estado.codigo}"</p>
-                <p th:text="${estado.descricao}"</p>
+                <label for="id">Id</label>
+                <p th:text="${estado.id}" id="id"></p>
+                <label for="codigo">Código</label>
+                <p th:text="${estado.codigo}" id="codigo"></p>
+                <label for="descricao">Descrição</label>
+                <p th:text="${estado.descricao}" id="descricao"></p>
                 <form class="form-inline" method="POST" th:action="@{/estados/excluir(id=${estado.id})}" style="margin: 20px 0">
-                    <div class="form-group">                    
-                        <button type="submit" class="btn btn-primary">Excluir</button>        
-                    </div>
+                    <div class="form-group">
+                        <a class="btn btn-danger" th:href="@{/estados}">Cancelar</a>
+                        <button type="submit" class="btn btn-success">Excluir</button> 
+                    </div> 
                 </form>                  
             </div>
         </div>
