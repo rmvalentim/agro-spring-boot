@@ -6,10 +6,7 @@
 package com.rafaelvalentim.agro.controller;
 
 import com.rafaelvalentim.agro.dao.EstadoDAO;
-import com.rafaelvalentim.agro.model.Estado;
-import com.rafaelvalentim.agro.model.Estados;
 import com.rafaelvalentim.agro.model.Municipio;
-import com.rafaelvalentim.agro.model.Municipios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,10 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MunicipiosController {
-    
-    @Autowired
-    private Municipios municipios;
-    
+        
     @Autowired
     private MunicipioDAO municipioDAO;
     
@@ -38,7 +32,7 @@ public class MunicipiosController {
     @GetMapping("municipios")
     public ModelAndView listarTodos() {
         ModelAndView mv = new ModelAndView("municipios/ListarMunicipios");
-        mv.addObject("municipios", municipios.findAll());
+        mv.addObject("municipios", municipioDAO.findAll());
         mv.addObject(new Municipio());
         return mv;
     }
@@ -76,21 +70,21 @@ public class MunicipiosController {
     @PostMapping("municipios/adicionar{id}")
     public String confirmaAdicionar(Municipio municipio, @RequestParam Long estado) {
         municipio.setEstado(estadoDAO.findById(estado));
-        this.municipios.save(municipio);
+        this.municipioDAO.save(municipio);
         return "redirect:/municipios";        
     }
    
     @PostMapping("municipios/atualizar{id}")
     public String confirmaAtualizar(Municipio municipio, Long id) {
         municipio.setId(id);
-        this.municipios.save(municipio);
+        this.municipioDAO.save(municipio);
         return "redirect:/municipios";
     }
  
     @PostMapping("municipios/excluir{id}")
     public String confirmaExcluir(Long id) {        
 	Municipio municipio = municipioDAO.findById(id);
-        this.municipios.delete(municipio);
+        this.municipioDAO.delete(municipio);
 	return "redirect:/municipios";
         
     }

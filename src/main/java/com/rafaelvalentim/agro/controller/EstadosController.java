@@ -6,7 +6,6 @@
 package com.rafaelvalentim.agro.controller;
 
 import com.rafaelvalentim.agro.model.Estado;
-import com.rafaelvalentim.agro.model.Estados;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,8 +20,8 @@ import com.rafaelvalentim.agro.dao.EstadoDAO;
 @Controller
 public class EstadosController {
     
-    @Autowired
-    private Estados estados;
+    //@Autowired
+    //private Estados estados;
     
     @Autowired
     private EstadoDAO estadoDao;
@@ -30,7 +29,7 @@ public class EstadosController {
     @GetMapping("estados")
     public ModelAndView listarTodos() {
         ModelAndView mv = new ModelAndView("estados/ListarEstados");
-        mv.addObject("estados", estados.findAll());
+        mv.addObject("estados", estadoDao.findAll());
         mv.addObject(new Estado());
         return mv;
     }
@@ -65,21 +64,21 @@ public class EstadosController {
 
     @PostMapping("estados/adicionar{id}")
     public String confirmaAdicionar(Estado estado) {
-        this.estados.save(estado);
+        this.estadoDao.save(estado);
         return "redirect:/estados";        
     }
    
     @PostMapping("estados/atualizar{id}")
     public String confirmaAtualizar(Estado estado, Long id) {
         estado.setId(id);
-        this.estados.save(estado);
+        this.estadoDao.save(estado);
         return "redirect:/estados";
     }
  
     @PostMapping("estados/excluir{id}")
     public String confirmaExcluir(Long id) {        
 	Estado estado = estadoDao.findById(id);
-        this.estados.delete(estado);
+        this.estadoDao.delete(estado);
 	return "redirect:/estados";
         
     }

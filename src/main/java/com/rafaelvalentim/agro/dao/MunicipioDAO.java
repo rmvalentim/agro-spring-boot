@@ -6,12 +6,12 @@
 package com.rafaelvalentim.agro.dao;
 
 import com.rafaelvalentim.agro.model.Municipio;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author rafael
  */
-public interface MunicipioDAO extends CrudRepository<Municipio, String>{
+public interface MunicipioDAO extends JpaRepository<Municipio, String>{
     Municipio findById(long Id);
 }

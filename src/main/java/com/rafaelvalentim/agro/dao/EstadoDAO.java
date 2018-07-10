@@ -6,13 +6,13 @@
 package com.rafaelvalentim.agro.dao;
 
 import com.rafaelvalentim.agro.model.Estado;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author rafael
  */
-public interface EstadoDAO extends CrudRepository<Estado, String> {
+public interface EstadoDAO extends JpaRepository<Estado, String> {
     Estado findById(long Id);
  
 }
