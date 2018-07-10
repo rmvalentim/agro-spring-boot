@@ -1,4 +1,4 @@
-package com.rafaelvalentim.festa;
+package com.rafaelvalentim.agro;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
