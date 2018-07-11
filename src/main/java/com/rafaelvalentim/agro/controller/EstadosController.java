@@ -28,7 +28,7 @@ public class EstadosController {
        
     @GetMapping("estados")
     public ModelAndView listarTodos() {
-        ModelAndView mv = new ModelAndView("estados/ListarEstados");
+        ModelAndView mv = new ModelAndView("estados/ListarEstado");
         mv.addObject("estados", estadoDao.findAll());
         mv.addObject(new Estado());
         return mv;

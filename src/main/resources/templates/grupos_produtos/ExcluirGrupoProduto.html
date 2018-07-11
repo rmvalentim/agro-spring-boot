@@ -9,23 +9,21 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width"/>
-        <title>Titulo</title>
+        <title>Grupos de Produtos</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
 
         <div class="container-fluid">
-            <div th:each="estado : ${estado}" class="container detalhesEvento">
-                <h2>Excluir entidade</h2>
+            <div th:each="grupoProduto : ${grupoProduto}" class="container detalhesEvento">
+                <h2>Excluir Grupo de Produtos</h2>
                 <label for="id">Id</label>
-                <p th:text="${estado.id}" id="id"></p>
-                <label for="codigo">Código</label>
-                <p th:text="${estado.codigo}" id="codigo"></p>
+                <p th:text="${grupoProduto.id}" id="id"></p>                
                 <label for="descricao">Descrição</label>
-                <p th:text="${estado.descricao}" id="descricao"></p>
-                <form class="form-inline" method="POST" th:action="@{/estados/excluir(id=${estado.id})}" style="margin: 20px 0">
+                <p th:text="${grupoProduto.descricao}" id="descricao"></p>
+                <form class="form-inline" method="POST" th:action="@{/grupos_produtos/excluir(id=${grupoProduto.id})}" style="margin: 20px 0">
                     <div class="form-group">
-                        <a class="btn btn-danger" th:href="@{/estados}">Cancelar</a>
+                        <a class="btn btn-danger" th:href="@{/grupos_produtos}">Cancelar</a>
                         <button type="submit" class="btn btn-success">Excluir</button> 
                     </div> 
                 </form>                  
