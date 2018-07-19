@@ -9,15 +9,15 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width"/>
-        <title>Titulo</title>
+        <title>Unidades de Medida</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>        
         <div class="container-fluid">            
-            <div th:each="estado : ${estado}" class="container detalhesEvento">    
-                <h2>Atualizar entidade</h2>
-                <form method="POST" th:object="${estado}" th:action="@{/estados/atualizar(id=${estado.id})}" style="margin: 20px 0">
-                    <div class="form-group">
+            <div th:each="unidade_medida : ${unidade_medida}" class="container detalhesEvento">    
+                <h2>Atualizar Unidade de Medida</h2>
+                <form method="POST" th:object="${unidade_medida}" th:action="@{/unidades_medida/atualizar(id=${unidade_medida.id})}" style="margin: 20px 0">
+                     <div class="form-group">
                         <label for="codigo">Código</label>
                         <input type="text" id="codigo" class="form-control" placeholder="Codigo" th:field="*{codigo}"/>
                         <small class="form-text text-muted">Campo obrigatório</small>                
@@ -28,9 +28,9 @@ and open the template in the editor.
                         <small class="form-text text-muted">Campo obrigatório</small>                                
                     </div>
                     <div class="form-group">
-                        <a class="btn btn-danger" th:href="@{/estados}">Cancelar</a>
+                        <a class="btn btn-danger" th:href="@{/unidades_medida}">Cancelar</a>
                         <button type="submit" class="btn btn-success">Atualizar</button> 
-                    </div>
+                    </div>  
                 </form>  
             </div>
         </div>

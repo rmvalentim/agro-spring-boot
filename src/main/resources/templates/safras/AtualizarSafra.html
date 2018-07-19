@@ -9,28 +9,33 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width"/>
-        <title>Titulo</title>
+        <title>Safras</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>        
         <div class="container-fluid">            
-            <div th:each="estado : ${estado}" class="container detalhesEvento">    
-                <h2>Atualizar entidade</h2>
-                <form method="POST" th:object="${estado}" th:action="@{/estados/atualizar(id=${estado.id})}" style="margin: 20px 0">
+            <div th:each="safra : ${safra}" class="container detalhesEvento">    
+                <h2>Atualizar Safra</h2>
+                <form method="POST" th:object="${safra}" th:action="@{/safras/atualizar(id=${safra.id})}" style="margin: 20px 0">
                     <div class="form-group">
-                        <label for="codigo">Código</label>
-                        <input type="text" id="codigo" class="form-control" placeholder="Codigo" th:field="*{codigo}"/>
-                        <small class="form-text text-muted">Campo obrigatório</small>                
-                    </div>   
-                    <div class="form-group">    
-                        <label for="descricao">Descrição</label>
-                        <input type="text" id="descricao" class="form-control" placeholder="Descricao" th:field="*{descricao}"/>
-                        <small class="form-text text-muted">Campo obrigatório</small>                                
-                    </div>
-                    <div class="form-group">
-                        <a class="btn btn-danger" th:href="@{/estados}">Cancelar</a>
-                        <button type="submit" class="btn btn-success">Atualizar</button> 
-                    </div>
+                    <label for="descricao">Descrição</label>
+                    <input type="text" id="descricao" class="form-control" placeholder="Descrição" th:field="*{descricao}"/>
+                    <small class="form-text text-muted">Campo obrigatório</small>                
+                </div>   
+                <div class="form-group">    
+                    <label for="dataInicio">Data de Inicio</label>
+                    <input type="date" id="dataInicio" class="form-control" placeholder="Data de Inicio" th:field="*{dataInicio}"/>
+                    <small class="form-text text-muted">Campo obrigatório</small>                                
+                </div>
+                <div class="form-group">    
+                    <label for="dataTermino">Data de Termino</label>
+                    <input type="date" id="dataTermino" class="form-control" placeholder="Data de Termino" th:field="*{dataTermino}"/>
+                    <small class="form-text text-muted">Campo obrigatório</small>                                
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-danger" th:href="@{/safras}">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Atualizar</button> 
+                </div>  
                 </form>  
             </div>
         </div>

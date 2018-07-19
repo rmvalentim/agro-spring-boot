@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -29,6 +30,8 @@ public class Talhao implements Serializable {
     
     private String descricao;
     private double areaTotal;
+    
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataCadastro;
     
 

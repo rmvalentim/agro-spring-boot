@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -27,7 +28,10 @@ public class Safra implements Serializable {
     private Long id;
     
     private String descricao;
+    
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataInicio;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataTermino;
 
     /**

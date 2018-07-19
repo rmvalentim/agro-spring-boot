@@ -15,17 +15,19 @@ and open the template in the editor.
     <body>
 
         <div class="container-fluid">
-            <div th:each="estado : ${estado}" class="container detalhesEvento">
+            <div th:each="talhao : ${talhao}" class="container detalhesEvento">
                 <h2>Excluir entidade</h2>
                 <label for="id">Id</label>
-                <p th:text="${estado.id}" id="id"></p>
-                <label for="codigo">Código</label>
-                <p th:text="${estado.codigo}" id="codigo"></p>
-                <label for="descricao">Descrição</label>
-                <p th:text="${estado.descricao}" id="descricao"></p>
-                <form class="form-inline" method="POST" th:action="@{/estados/excluir(id=${estado.id})}" style="margin: 20px 0">
+                <p th:text="${talhao.id}" id="id"></p>
+                <label for="codigo">Descrição</label>
+                <p th:text="${talhao.descricao}" id="descricao"></p>
+                <label for="areaTotal">Área Total</label>
+                <p th:text="${talhao.areaTotal}" id="areaTotal"></p>
+                <label for="dataCadastro">Data de Cadastro</label>
+                <p th:text="${#dates.format(talhao.dataCadastro, 'dd/MM/yyyy')}" id="dataCadastro"></p>
+                <form class="form-inline" method="POST" th:action="@{/talhoes/excluir(id=${talhao.id})}" style="margin: 20px 0">
                     <div class="form-group">
-                        <a class="btn btn-danger" th:href="@{/estados}">Cancelar</a>
+                        <a class="btn btn-danger" th:href="@{/talhoes}">Cancelar</a>
                         <button type="submit" class="btn btn-success">Excluir</button> 
                     </div> 
                 </form>                  

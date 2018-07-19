@@ -9,23 +9,25 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width"/>
-        <title>Titulo</title>
+        <title>Safras</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
 
         <div class="container-fluid">
-            <div th:each="estado : ${estado}" class="container detalhesEvento">
-                <h2>Excluir entidade</h2>
-                <label for="id">Id</label>
-                <p th:text="${estado.id}" id="id"></p>
-                <label for="codigo">Código</label>
-                <p th:text="${estado.codigo}" id="codigo"></p>
+            <div th:each="safra : ${safra}" class="container detalhesEvento">
+                <h2>Excluir Safras</h2>
+                 <label for="id">Id</label>
+                <p th:text="${safra.id}" id="id"></p>
                 <label for="descricao">Descrição</label>
-                <p th:text="${estado.descricao}" id="descricao"></p>
-                <form class="form-inline" method="POST" th:action="@{/estados/excluir(id=${estado.id})}" style="margin: 20px 0">
+                <p th:text="${safra.descricao}" id="nomeCompleto"></p>
+                <label for="dataInicio">Data de Inicio</label>
+                <p th:text="${#dates.format(safra.dataInicio, 'dd/MM/yyyy')}" id="dataInicio"></p>
+                <label for="dataTermino">Data de Termino</label>
+                <p th:text="${#dates.format(safra.dataTermino, 'dd/MM/yyyy')}" id="dataTermino"></p>
+                <form class="form-inline" method="POST" th:action="@{/safras/excluir(id=${safra.id})}" style="margin: 20px 0">
                     <div class="form-group">
-                        <a class="btn btn-danger" th:href="@{/estados}">Cancelar</a>
+                        <a class="btn btn-danger" th:href="@{/safras}">Cancelar</a>
                         <button type="submit" class="btn btn-success">Excluir</button> 
                     </div> 
                 </form>                  
