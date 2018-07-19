@@ -18,11 +18,8 @@ import com.rafaelvalentim.agro.dao.EstadoDAO;
  * @author rafael
  */
 @Controller
-public class EstadosController {
-    
-    //@Autowired
-    //private Estados estados;
-    
+public class EstadoController {
+            
     @Autowired
     private EstadoDAO estadoDao;
        

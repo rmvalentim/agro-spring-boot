@@ -9,26 +9,31 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width"/>
-        <title>Titulo</title>
+        <title>Operadores</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
 
         <div class="container">
-            <h2>Adicionar entidade</h2>
-            <form method="POST" th:object="${estado}" th:action="@{/estados/adicionar(id=${estado.id})}" style="margin: 20px 0">
+            <h2>Adicionar Operador</h2>
+            <form method="POST" th:object="${operador}" th:action="@{/operadores/adicionar(id=${operador.id})}" style="margin: 20px 0">
                 <div class="form-group">
-                    <label for="codigo">Código</label>
-                    <input type="text" id="codigo" class="form-control" placeholder="Codigo" th:field="*{codigo}"/>
+                    <label for="nomeCompleto">Nome Completo</label>
+                    <input type="text" id="codigo" class="form-control" placeholder="Nome completo" th:field="*{nomeCompleto}"/>
                     <small class="form-text text-muted">Campo obrigatório</small>                
                 </div>   
                 <div class="form-group">    
-                    <label for="descricao">Descrição</label>
-                    <input type="text" id="descricao" class="form-control" placeholder="Descricao" th:field="*{descricao}"/>
+                    <label for="nomeReduzido">Nome Reduzido</label>
+                    <input type="text" id="descricao" class="form-control" placeholder="Nome reduzido" th:field="*{nomeReduzido}"/>
+                    <small class="form-text text-muted">Campo obrigatório</small>                                
+                </div>
+                <div class="form-group">    
+                    <label for="codigoRegistro">Codigo de Registro</label>
+                    <input type="text" id="descricao" class="form-control" placeholder="Codigo registro" th:field="*{codigoRegistro}"/>
                     <small class="form-text text-muted">Campo obrigatório</small>                                
                 </div>
                 <div class="form-group">
-                    <a class="btn btn-danger" th:href="@{/estados}">Cancelar</a>
+                    <a class="btn btn-danger" th:href="@{/operadores}">Cancelar</a>
                     <button type="submit" class="btn btn-success">Adicionar</button> 
                 </div>                     
             </form>           

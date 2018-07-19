@@ -15,17 +15,19 @@ and open the template in the editor.
     <body>
 
         <div class="container-fluid">
-            <div th:each="estado : ${estado}" class="container detalhesEvento">
+            <div th:each="operador : ${operador}" class="container detalhesEvento">
                 <h2>Excluir entidade</h2>
                 <label for="id">Id</label>
-                <p th:text="${estado.id}" id="id"></p>
-                <label for="codigo">Código</label>
-                <p th:text="${estado.codigo}" id="codigo"></p>
-                <label for="descricao">Descrição</label>
-                <p th:text="${estado.descricao}" id="descricao"></p>
-                <form class="form-inline" method="POST" th:action="@{/estados/excluir(id=${estado.id})}" style="margin: 20px 0">
+                <p th:text="${operador.id}" id="id"></p>
+                <label for="nomeCompleto">Nome Completo</label>
+                <p th:text="${operador.nomeCompleto}" id="nomeCompleto"></p>
+                <label for="nomeReduzido">Nome Reduzido</label>
+                <p th:text="${operador.nomeReduzido}" id="nomeReduzido"></p>
+                <label for="codigoRegistro">Codigo de Registro</label>
+                <p th:text="${operador.codigoRegistro}" id="codigoRegistro"></p>
+                <form class="form-inline" method="POST" th:action="@{/operadores/excluir(id=${operador.id})}" style="margin: 20px 0">
                     <div class="form-group">
-                        <a class="btn btn-danger" th:href="@{/estados}">Cancelar</a>
+                        <a class="btn btn-danger" th:href="@{/operadores}">Cancelar</a>
                         <button type="submit" class="btn btn-success">Excluir</button> 
                     </div> 
                 </form>                  

@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 
 @Controller
-public class MunicipiosController {
+public class MunicipioController {
         
     @Autowired
     private MunicipioDAO municipioDAO;

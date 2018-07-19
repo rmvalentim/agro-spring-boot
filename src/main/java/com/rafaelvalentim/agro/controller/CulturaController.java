@@ -19,7 +19,7 @@ import java.util.Date;
  * @author rafael
  */
 @Controller
-public class CulturasController {
+public class CulturaController {
     
     @Autowired
     private CulturaDAO culturaDao;

@@ -9,28 +9,33 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width"/>
-        <title>Titulo</title>
+        <title>Usuarios</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>        
         <div class="container-fluid">            
-            <div th:each="estado : ${estado}" class="container detalhesEvento">    
-                <h2>Atualizar entidade</h2>
-                <form method="POST" th:object="${estado}" th:action="@{/estados/atualizar(id=${estado.id})}" style="margin: 20px 0">
+            <div th:each="usuario : ${usuario}" class="container detalhesEvento">    
+                <h2>Atualizar Usuario</h2>
+                <form method="POST" th:object="${usuario}" th:action="@{/usuarios/atualizar(id=${usuario.id})}" style="margin: 20px 0">
                     <div class="form-group">
-                        <label for="codigo">Código</label>
-                        <input type="text" id="codigo" class="form-control" placeholder="Codigo" th:field="*{codigo}"/>
-                        <small class="form-text text-muted">Campo obrigatório</small>                
-                    </div>   
-                    <div class="form-group">    
-                        <label for="descricao">Descrição</label>
-                        <input type="text" id="descricao" class="form-control" placeholder="Descricao" th:field="*{descricao}"/>
-                        <small class="form-text text-muted">Campo obrigatório</small>                                
-                    </div>
-                    <div class="form-group">
-                        <a class="btn btn-danger" th:href="@{/estados}">Cancelar</a>
-                        <button type="submit" class="btn btn-success">Atualizar</button> 
-                    </div>
+                    <label for="login">Login</label>
+                    <input type="text" id="codigo" class="form-control" placeholder="Login" th:field="*{login}"/>
+                    <small class="form-text text-muted">Campo obrigatório</small>                
+                </div>   
+                <div class="form-group">    
+                    <label for="senha">Senha</label>
+                    <input type="password" id="descricao" class="form-control" placeholder="Senha" th:field="*{senha}"/>
+                    <small class="form-text text-muted">Campo obrigatório</small>                                
+                </div>                
+                <div class="form-group">    
+                    <label for="email">E-mail</label>
+                    <input type="email" id="descricao" class="form-control" placeholder="E-mail" th:field="*{email}"/>
+                    <small class="form-text text-muted">Campo obrigatório</small>                                
+                </div>                
+                <div class="form-group">
+                    <a class="btn btn-danger" th:href="@{/usuarios}">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Atualizar</button> 
+                </div>
                 </form>  
             </div>
         </div>
