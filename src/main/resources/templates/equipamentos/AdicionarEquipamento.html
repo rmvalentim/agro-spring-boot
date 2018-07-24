@@ -9,31 +9,45 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width"/>
-        <title>Titulo</title>
+        <title>Equipamentos</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
 
         <div class="container">
-            <h2>Adicionar entidade</h2>
-            <form method="POST" th:object="${estado}" th:action="@{/estados/adicionar(id=${estado.id})}" style="margin: 20px 0">
-                <div class="form-group">
-                    <label for="codigo">Código</label>
-                    <input type="text" id="codigo" class="form-control" placeholder="Codigo" th:field="*{codigo}"/>
-                    <small class="form-text text-muted">Campo obrigatório</small>                
-                </div>   
+            <h2>Adicionar Equipamento:</h2>
+            <form method="POST" th:object="${equipamento}" th:action="@{/equipamentos/adicionar(id=${equipamento.id})}" style="margin: 20px 0">
                 <div class="form-group">    
                     <label for="descricao">Descrição</label>
                     <input type="text" id="descricao" class="form-control" placeholder="Descricao" th:field="*{descricao}"/>
                     <small class="form-text text-muted">Campo obrigatório</small>                                
-                </div>
+                </div>                
                 <div class="form-group">
-                    <a class="btn btn-danger" th:href="@{/estados}">Cancelar</a>
+                    <label for="marca">Marca</label>
+                    <input type="text" id="marca" class="form-control" placeholder="Marca" th:field="*{marca}"/>
+                    <small class="form-text text-muted">Campo obrigatório</small>                
+                </div>   
+                <div class="form-group">
+                    <label for="modelo">Modelo</label>
+                    <input type="text" id="modelo" class="form-control" placeholder="Modelo" th:field="*{modelo}"/>
+                    <small class="form-text text-muted">Campo obrigatório</small>                
+                </div>   
+                <div class="form-group">
+                    <label>Grupo</label>
+                    <select name="grupoEquipamento" class="form-control">
+                        <option value="">Selecione o Grupo</option>
+                        <option th:each="grupoEquipamento : ${gruposEquipamentos}"
+                                th:value="${grupoEquipamento.id}" 
+                                th:text="${grupoEquipamento.descricao}"></option>
+                    </select>
+                    <small class="form-text text-muted">Campo obrigatório</small>                
+                </div> 
+                <div class="form-group">
+                    <a class="btn btn-danger" th:href="@{/equipamentos}">Cancelar</a>
                     <button type="submit" class="btn btn-success">Adicionar</button> 
-                </div>                     
+                </div> 
             </form>           
         </div>
-        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>

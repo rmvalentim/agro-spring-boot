@@ -6,13 +6,13 @@
 package com.rafaelvalentim.agro.dao;
 
 import com.rafaelvalentim.agro.model.Operador;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Rafael.Valentim
  */
-public interface OperadorDAO extends CrudRepository<Operador, String> {
+public interface OperadorDAO extends JpaRepository<Operador, String> {
     Operador findById(long Id);
     
 }

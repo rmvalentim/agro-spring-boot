@@ -6,12 +6,12 @@
 package com.rafaelvalentim.agro.dao;
 
 import com.rafaelvalentim.agro.model.UnidadeProdutiva;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Rafael.Valentim
  */
-public interface UnidadeProdutivaDAO extends CrudRepository<UnidadeProdutiva, String>{
+public interface UnidadeProdutivaDAO extends JpaRepository<UnidadeProdutiva, String>{
     UnidadeProdutiva findById(long Id);
 }

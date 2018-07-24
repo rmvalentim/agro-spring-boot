@@ -6,13 +6,13 @@
 package com.rafaelvalentim.agro.dao;
 
 import com.rafaelvalentim.agro.model.Usuario;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Rafael.Valentim
  */
-public interface UsuarioDAO extends CrudRepository<Usuario, String> {
+public interface UsuarioDAO extends JpaRepository<Usuario, String> {
     Usuario findById(long Id);
     
 }

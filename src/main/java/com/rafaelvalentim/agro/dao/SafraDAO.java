@@ -6,12 +6,12 @@
 package com.rafaelvalentim.agro.dao;
 
 import com.rafaelvalentim.agro.model.Safra;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Rafael.Valentim
  */
-public interface SafraDAO extends CrudRepository<Safra, String> {
+public interface SafraDAO extends JpaRepository<Safra, String> {
     Safra findById(long Id);
 }

@@ -5,13 +5,13 @@
  */
 package com.rafaelvalentim.agro.dao;
 
-import org.springframework.data.repository.CrudRepository;
 import com.rafaelvalentim.agro.model.UnidadeMedida;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Rafael.Valentim
  */
-public interface UnidadeMedidaDAO extends CrudRepository<UnidadeMedida, String>{
+public interface UnidadeMedidaDAO extends JpaRepository<UnidadeMedida, String>{
     UnidadeMedida findById(long Id);
 }

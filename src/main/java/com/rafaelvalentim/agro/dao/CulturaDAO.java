@@ -6,12 +6,12 @@
 package com.rafaelvalentim.agro.dao;
 
 import com.rafaelvalentim.agro.model.Cultura;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Rafael.Valentim
  */
-public interface CulturaDAO extends CrudRepository<Cultura, String>{
+public interface CulturaDAO extends JpaRepository<Cultura, String>{
     Cultura findById(long Id);
 }

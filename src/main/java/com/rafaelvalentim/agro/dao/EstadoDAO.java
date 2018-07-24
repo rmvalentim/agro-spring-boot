@@ -7,6 +7,7 @@ package com.rafaelvalentim.agro.dao;
 
 import com.rafaelvalentim.agro.model.Estado;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
 /**
  *

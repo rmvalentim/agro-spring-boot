@@ -6,12 +6,12 @@
 package com.rafaelvalentim.agro.dao;
 
 import com.rafaelvalentim.agro.model.CustoEquipamento;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Rafael.Valentim
  */
-public interface CustoEquipamentoDAO extends CrudRepository<CustoEquipamento, String> {
+public interface CustoEquipamentoDAO extends JpaRepository<CustoEquipamento, String> {
     CustoEquipamento findById(long Id);
 }

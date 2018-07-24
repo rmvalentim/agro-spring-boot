@@ -6,12 +6,12 @@
 package com.rafaelvalentim.agro.dao;
 
 import com.rafaelvalentim.agro.model.Produto;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Rafael.Valentim
  */
-public interface ProdutoDAO extends CrudRepository<Produto, String> {
+public interface ProdutoDAO extends JpaRepository<Produto, String> {
     Produto findById(long Id);
 }

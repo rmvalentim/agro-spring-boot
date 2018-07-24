@@ -6,12 +6,12 @@
 package com.rafaelvalentim.agro.dao;
 
 import com.rafaelvalentim.agro.model.Talhao;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Rafael.Valentim
  */
-public interface TalhaoDAO extends CrudRepository<Talhao, String> {
+public interface TalhaoDAO extends JpaRepository<Talhao, String> {
     Talhao findById(long Id);
 }
