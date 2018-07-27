@@ -8,7 +8,6 @@ package com.rafaelvalentim.agro.controller;
 import com.rafaelvalentim.agro.dao.EquipamentoDAO;
 import com.rafaelvalentim.agro.dao.GrupoEquipamentoDAO;
 import com.rafaelvalentim.agro.model.Equipamento;
-import com.rafaelvalentim.agro.model.GrupoEquipamento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +32,7 @@ public class EquipamentoController {
     public ModelAndView listarTodos() {
         ModelAndView mv = new ModelAndView("equipamentos/ListarEquipamento");
         mv.addObject("equipamentos", equipamentoDAO.findAll());
-        mv.addObject(new GrupoEquipamento());
+        mv.addObject(new Equipamento());
         return mv;
     }
     
@@ -68,8 +67,8 @@ public class EquipamentoController {
     }
 
     @PostMapping("equipamentos/adicionar{id}")
-    public String confirmaAdicionar(Equipamento equipamento, @RequestParam Long grupoEquipamento) {
-        equipamento.setGrupoEquipamento(grupoEquipamentoDAO.findById(grupoEquipamento));
+    public String confirmaAdicionar(Equipamento equipamento, @RequestParam Long grupo) {
+        equipamento.setGrupoEquipamento(grupoEquipamentoDAO.findById(grupo));
         this.equipamentoDAO.save(equipamento);        
         return "redirect:/equipamentos";        
     }

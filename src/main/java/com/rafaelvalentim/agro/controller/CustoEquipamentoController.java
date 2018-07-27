@@ -5,7 +5,6 @@
  */
 package com.rafaelvalentim.agro.controller;
 
-import com.rafaelvalentim.agro.dao.EstadoDAO;
 import com.rafaelvalentim.agro.dao.CustoEquipamentoDAO;
 import com.rafaelvalentim.agro.dao.EquipamentoDAO;
 import com.rafaelvalentim.agro.dao.SafraDAO;

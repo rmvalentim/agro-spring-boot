@@ -1,31 +1,29 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html xmlns= "http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width"/>
-        <title>Grupos de Produtos</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    </head>
-    <body>        
-        <div class="container-fluid">
-            <div th:each="grupoProduto : ${gruposProdutos}" class="container detalhesEvento">        
-                <h2>Detalhar Grupo de Produtos</h2>
-                <label for="id">Id</label>
-                <p th:text="${grupoProduto.id}" id="id"></p>               
-                <label for="descricao">Descrição</label>
-                <p th:text="${grupoProduto.descricao}" id="descricao"></p>
-                <a class="btn btn-danger" th:href="@{/grupos_produtos}">Cancelar</a>
-            </div>            
-        </div>
-
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <head th:replace="Layout :: head"></head>
+    <body>
+        <div class="wrapper">
+            <nav th:replace="Layout :: menu"></nav>        
+            <div id="content">
+                <nav th:replace="Layout :: barra"></nav>
+                <div class="content-page">     
+                    <div class="container-fluid">
+                        <div th:each="grupoProduto : ${gruposProdutos}" class="container detalhesEvento">        
+                            <h2>Detalhar Grupo de Produtos</h2>
+                            <label for="id">Id</label>
+                            <p th:text="${grupoProduto.id}" id="id"></p>               
+                            <label for="descricao">Descrição</label>
+                            <p th:text="${grupoProduto.descricao}" id="descricao"></p>
+                            <a class="btn btn-danger" th:href="@{/grupos_produtos}">Cancelar</a>
+                        </div>            
+                    </div>
+                </div> 
+            </div>
+        </div>    
+        <script th:replace="Layout :: jquery"></script>
+        <script th:replace="Layout :: popper"></script>
+        <script th:replace="Layout :: bootstrap"></script>
+        <script th:replace="Layout :: js"></script>
     </body>
 </html>

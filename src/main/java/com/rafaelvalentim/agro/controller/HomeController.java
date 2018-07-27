@@ -21,4 +21,16 @@ public class HomeController {
     ModelAndView mv = new ModelAndView("Home");
     return mv;
     }
+    
+    @GetMapping("/layout")
+    public ModelAndView layout(){
+    ModelAndView mv = new ModelAndView("Layout");
+    return mv;
+    }
+    
+    @GetMapping("/content")
+    public ModelAndView content(){
+    ModelAndView mv = new ModelAndView("Content");
+    return mv;
+    }
 }

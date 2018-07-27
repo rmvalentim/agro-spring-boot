@@ -1,67 +1,68 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html xmlns= "http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width"/>
-        <title>Custos de Equipamentos</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    </head>
-    <body>        
-        <div class="container-fluid">            
-            <div th:each="custoEquipamento : ${custoEquipamento}" class="container detalhesEvento">    
-                <h2>Atualizar Custo de Equipamento</h2>
-                <form method="POST" th:object="${custoEquipamento}" th:action="@{/custos_equipamentos/adicionar(id=${custoEquipamento.id})}" style="margin: 20px 0">
+    <head th:replace="Layout :: head"></head>
+    <body>
+        <div class="wrapper">
+            <nav th:replace="Layout :: menu"></nav>
 
-                    <div class="form-group">
-                        <label>Equipamento</label>
-                        <select name="equipamento" class="form-control">
-                            <option value="">Selecione o equipamento</option>
-                            <option th:each="equipamento : ${equipamentos}"
-                                    th:value="${equipamento.id}" 
-                                    th:text="${equipamento.descricao}"></option>
-                        </select>
-                        <small class="form-text text-muted">Campo obrigatório</small>                
-                    </div>    
+            <div id="content">
+                <nav th:replace="Layout :: barra"></nav>
+                <div class="content-page">         
+                    <div class="container-fluid">            
+                        <div th:each="custoEquipamento : ${custoEquipamento}" class="container detalhesEvento">    
+                            <h2>Atualizar Custo de Equipamento</h2>
+                            <form method="POST" th:object="${custoEquipamento}" th:action="@{/custos_equipamentos/adicionar(id=${custoEquipamento.id})}" style="margin: 20px 0">
 
-                    <div class="form-group">
-                        <label>Safra</label>
-                        <select name="safra" class="form-control">
-                            <option value="">Selecione a safra</option>
-                            <option th:each="safra : ${safras}"
-                                    th:value="${safra.id}" 
-                                    th:text="${safra.descricao}"></option>
-                        </select>
-                        <small class="form-text text-muted">Campo obrigatório</small>                
-                    </div>                  
+                                <div class="form-group">
+                                    <label>Equipamento</label>
+                                    <select name="equipamento" class="form-control">
+                                        <option value="">Selecione o equipamento</option>
+                                        <option th:each="equipamento : ${equipamentos}"
+                                                th:value="${equipamento.id}" 
+                                                th:text="${equipamento.descricao}"></option>
+                                    </select>
+                                    <small class="form-text text-muted">Campo obrigatório</small>                
+                                </div>    
 
-                    <div class="form-group">    
-                        <label for="custoReal">Custo Real R$</label>
-                        <input type="number" step="any" id="custoReal" class="form-control" placeholder="0,0000" th:field="*{custoReal}"/>
-                        <small class="form-text text-muted">Campo obrigatório</small>                                
-                    </div> 
+                                <div class="form-group">
+                                    <label>Safra</label>
+                                    <select name="safra" class="form-control">
+                                        <option value="">Selecione a safra</option>
+                                        <option th:each="safra : ${safras}"
+                                                th:value="${safra.id}" 
+                                                th:text="${safra.descricao}"></option>
+                                    </select>
+                                    <small class="form-text text-muted">Campo obrigatório</small>                
+                                </div>                  
 
-                    <div class="form-group">    
-                        <label for="custoDollar">Custo Dollar US$</label>
-                        <input type="number" step="any" id="custoDollar" class="form-control" placeholder="0,0000" th:field="*{custoDollar}"/>
-                        <small class="form-text text-muted">Campo obrigatório</small>                                
-                    </div> 
+                                <div class="form-group">    
+                                    <label for="custoReal">Custo Real R$</label>
+                                    <input type="number" step="any" id="custoReal" class="form-control" placeholder="0,0000" th:field="*{custoReal}"/>
+                                    <small class="form-text text-muted">Campo obrigatório</small>                                
+                                </div> 
 
-                    <div class="form-group">
-                        <a class="btn btn-danger" th:href="@{/custos_equipamentos}">Cancelar</a>
-                        <button type="submit" class="btn btn-success">Adicionar</button> 
-                    </div> 
+                                <div class="form-group">    
+                                    <label for="custoDollar">Custo Dollar US$</label>
+                                    <input type="number" step="any" id="custoDollar" class="form-control" placeholder="0,0000" th:field="*{custoDollar}"/>
+                                    <small class="form-text text-muted">Campo obrigatório</small>                                
+                                </div> 
+
+                                <div class="form-group">
+                                    <a class="btn btn-danger" th:href="@{/custos_equipamentos}">Cancelar</a>
+                                    <button type="submit" class="btn btn-success">Adicionar</button> 
+                                </div> 
+                        </div> 
+                        </form> 
+                    </div>
+                </div>
             </div> 
-            </form> 
         </div>
-        </div>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        </div>    
+        <script th:replace="Layout :: jquery"></script>
+        <script th:replace="Layout :: popper"></script>
+        <script th:replace="Layout :: bootstrap"></script>
+        <script th:replace="Layout :: js"></script>
     </body>
 </html>
+

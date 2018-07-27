@@ -1,39 +1,37 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html xmlns= "http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width"/>
-        <title>Unidades de Medida</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    </head>
+    <head th:replace="Layout :: head"></head>
     <body>
-
-        <div class="container-fluid">
-            <div th:each="unidade_medida : ${unidade_medida}" class="container detalhesEvento">
-                <h2>Excluir Unidade de Medida</h2>
-                <label for="id">Id</label>
-                <p th:text="${unidade_medida.id}" id="id"></p>
-                <label for="codigo">Código</label>
-                <p th:text="${unidade_medida.codigo}" id="codigo"></p>
-                <label for="descricao">Descrição</label>
-                <p th:text="${unidade_medida.descricao}" id="descricao"></p>                
-                <form class="form-inline" method="POST" th:action="@{/unidades_medida/excluir(id=${unidade_medida.id})}" style="margin: 20px 0">
-                    <div class="form-group">
-                        <a class="btn btn-danger" th:href="@{/unidades_medida}">Cancelar</a>
-                        <button type="submit" class="btn btn-success">Excluir</button> 
-                    </div> 
-                </form>                  
+        <div class="wrapper">
+            <nav th:replace="Layout :: menu"></nav>        
+            <div id="content">
+                <nav th:replace="Layout :: barra"></nav>
+                <div class="content-page"> 
+                    <div class="container-fluid">
+                        <div th:each="unidade_medida : ${unidade_medida}" class="container detalhesEvento">
+                            <h2>Excluir Unidade de Medida</h2>
+                            <label for="id">Id</label>
+                            <p th:text="${unidade_medida.id}" id="id"></p>
+                            <label for="codigo">Código</label>
+                            <p th:text="${unidade_medida.codigo}" id="codigo"></p>
+                            <label for="descricao">Descrição</label>
+                            <p th:text="${unidade_medida.descricao}" id="descricao"></p>                
+                            <form class="form-inline" method="POST" th:action="@{/unidades_medida/excluir(id=${unidade_medida.id})}" style="margin: 20px 0">
+                                <div class="form-group">
+                                    <a class="btn btn-danger" th:href="@{/unidades_medida}">Cancelar</a>
+                                    <button type="submit" class="btn btn-success">Excluir</button> 
+                                </div> 
+                            </form>                  
+                        </div>
+                    </div>
+                </div> 
             </div>
-        </div>
-
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        </div>    
+        <script th:replace="Layout :: jquery"></script>
+        <script th:replace="Layout :: popper"></script>
+        <script th:replace="Layout :: bootstrap"></script>
+        <script th:replace="Layout :: js"></script>
     </body>
 </html>
+

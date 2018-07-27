@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns= "http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="cabecalho">
+        <title>Agro</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width"/>
+        <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" th:href="@{/style.css}">
+
+        <!-- Font Awesome JS -->
+        <script defer th:href="@{/solid.js}"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    </head>
+    <body> 
+         <div class="wrapper">
+            <!-- Sidebar  -->
+            <nav id="sidebar" th:fragment="menu">
+                <div class="sidebar-header">
+                    <h3>Agro</h3>
+                    <strong>Ag</strong>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <i class="fas fa-home"></i>
+                            Cadastros
+                        </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a th:href="@{/estados}">Cadastro de Estados</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/municipios}">Cadastro de Municipios</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/atividades_agricolas}">Cadastro de Atividades Agricolas</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/culturas}">Cadastro de Culturas</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/grupos_equipamentos}">Cadastro de Grupos de Equipamentos</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/grupos_produtos}">Cadastro de Grupos de Produtos</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/operadores}">Cadastro de Operadores</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/usuarios}">Cadastro de Usuarios</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/safras}">Cadastro de Safras</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/talhoes}">Cadastro de Talhões</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/unidades_medida}">Cadastro de Unidades de Medida</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/equipamentos}">Cadastro de Equipamentos (Não finalizado)</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/custos_equipamentos}">Cadastro de Custos de Equipamentos (Não finalizado)</a>
+                            </li>
+                        </ul>
+                    </li>                                    
+                </ul>            
+            </nav>
+
+            <!-- Page Content  -->
+            <div id="content">
+
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark" th:fragment="barra">
+                    <div class="container-fluid">
+
+                        <button type="button" id="sidebarCollapse" class="btn btn-info">
+                            <i class="fas fa-align-left"></i>
+                            <span>Menu</span>
+                        </button>
+                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-align-justify"></i>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Page</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Page</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Page</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Page</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="content-page">                                    
+
+                    <div>                                        
+                    </div>                                    
+
+                </div>            
+            </div>
+        </div> 
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script th:fragment="jquery" th:src="@{/jquery-3.3.1.slim.min.js}"></script>
+    <!-- Popper.JS -->
+    <script th:fragment="popper" th:src="@{/popper.min.js}"></script>
+    <!-- Bootstrap JS -->
+    <script th:fragment="bootstrap" th:src="@{/bootstrap.min.js}"></script>
+
+    <script th:fragment="js" type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+</body>
+</html>
