@@ -9,6 +9,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -25,7 +26,10 @@ public class CustoOperador implements Serializable {
     @GenericGenerator(name="increment",strategy="increment")
     private Long id;
     
+    @ManyToOne
     private Operador operador;
+    
+    @ManyToOne
     private Safra safra;
     private double custoReal;
     private double custoDollar;

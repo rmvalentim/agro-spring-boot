@@ -1,40 +1,66 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html xmlns= "http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width"/>
-        <title>Titulo</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    </head>
+    <head th:replace="Layout :: head"></head>
     <body>
+        <div class="wrapper">
+            <nav th:replace="Layout :: menu"></nav>
 
-        <div class="container">
-            <h2>Adicionar entidade</h2>
-            <form method="POST" th:object="${estado}" th:action="@{/estados/adicionar(id=${estado.id})}" style="margin: 20px 0">
-                <div class="form-group">
-                    <label for="codigo">Código</label>
-                    <input type="text" id="codigo" class="form-control" placeholder="Codigo" th:field="*{codigo}"/>
-                    <small class="form-text text-muted">Campo obrigatório</small>                
-                </div>   
-                <div class="form-group">    
-                    <label for="descricao">Descrição</label>
-                    <input type="text" id="descricao" class="form-control" placeholder="Descricao" th:field="*{descricao}"/>
-                    <small class="form-text text-muted">Campo obrigatório</small>                                
-                </div>
-                <div class="form-group">
-                    <a class="btn btn-danger" th:href="@{/estados}">Cancelar</a>
-                    <button type="submit" class="btn btn-success">Adicionar</button> 
-                </div>                     
-            </form>           
-        </div>
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <div id="content">
+                <nav th:replace="Layout :: barra"></nav>
+                <div class="content-page">  
+                    <div class="container">
+                        <h2>Adicionar Custo de Operador:</h2>
+                        <form method="POST" th:object="${custoOperador}" th:action="@{/custos_operadores/adicionar(id=${custoOperador.id})}" style="margin: 20px 0">
+
+                            <div class="form-group">
+                                <label>Operador</label>
+                                <select name="operadorId" class="form-control">
+                                    <option value="">Selecione o operador</option>
+                                    <option th:each="operador : ${operadores}"
+                                            th:value="${operador.id}" 
+                                            th:text="${operador.nomeCompleto}"></option>
+                                </select>
+                                <small class="form-text text-muted">Campo obrigatório</small>                
+                            </div>    
+
+                            <div class="form-group">
+                                <label>Safra</label>
+                                <select name="safraId" class="form-control">
+                                    <option value="">Selecione a safra</option>
+                                    <option th:each="safra : ${safras}"
+                                            th:value="${safra.id}" 
+                                            th:text="${safra.descricao}"></option>
+                                </select>
+                                <small class="form-text text-muted">Campo obrigatório</small>                
+                            </div>                  
+
+                            <div class="form-group">    
+                                <label for="custoReal">Custo Real R$</label>
+                                <input type="number" step="any" id="custoReal" class="form-control" placeholder="0,0000" th:field="*{custoReal}"/>
+                                <small class="form-text text-muted">Campo obrigatório</small>                                
+                            </div> 
+
+                            <div class="form-group">    
+                                <label for="custoDollar">Custo Dollar US$</label>
+                                <input type="number" step="any" id="custoDollar" class="form-control" placeholder="0,0000" th:field="*{custoDollar}"/>
+                                <small class="form-text text-muted">Campo obrigatório</small>                                
+                            </div> 
+
+                            <div class="form-group">
+                                <a class="btn btn-danger" th:href="@{/custos_operadores}">Cancelar</a>
+                                <button type="submit" class="btn btn-success">Adicionar</button> 
+
+                        </form>
+                    </div> 
+                </div> 
+
+            </div>
+        </div> 
+        </div>   
+        <script th:replace="Layout :: jquery"></script>
+        <script th:replace="Layout :: popper"></script>
+        <script th:replace="Layout :: bootstrap"></script>
+        <script th:replace="Layout :: js"></script>
     </body>
 </html>

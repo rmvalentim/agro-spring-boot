@@ -27,52 +27,81 @@ and open the template in the editor.
                     <h3>Agro</h3>
                     <strong>Ag</strong>
                 </div>
-
                 <ul class="list-unstyled components">
                     <li class="active">
+                        <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <i class="fas fa-leaf"></i>
+                            Agro
+                        </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu2">
+                            <li>
+                                <a th:href="@{/atividades_agricolas}">Atividades Agricolas</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/culturas}">Culturas</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/operacoes_agricolas}">Operações Agricolas</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/safras}">Safras</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/talhoes}">Talhões</a>
+                            </li>
+                        </ul>
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <i class="fas fa-home"></i>
                             Cadastros
                         </a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li>
-                                <a th:href="@{/estados}">Cadastro de Estados</a>
+                                <a th:href="@{/estados}">Estados</a>
                             </li>
                             <li>
-                                <a th:href="@{/municipios}">Cadastro de Municipios</a>
+                                <a th:href="@{/municipios}">Municipios</a>
+                            </li>                            
+                            <li>
+                                <a th:href="@{/operadores}">Operadores</a>
                             </li>
                             <li>
-                                <a th:href="@{/atividades_agricolas}">Cadastro de Atividades Agricolas</a>
+                                <a th:href="@{/usuarios}">Usuarios</a>
+                            </li>                            
+                            <li>
+                                <a th:href="@{/unidades_medida}">Unidades de Medida</a>
+                            </li>
+                        </ul>                        
+                        <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <i class="fas fa-dollar-sign"></i>
+                            Custos
+                        </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu3">
+                            <li>
+                                <a th:href="@{/custos_equipamentos}">Custos de Equipamentos</a>
                             </li>
                             <li>
-                                <a th:href="@{/culturas}">Cadastro de Culturas</a>
+                                <a th:href="@{/custos_operadores}">Custos de Operadores</a>
                             </li>
+                        </ul>
+                        <a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <i class="fas fa-box"></i>
+                            Produtos
+                        </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu4">
                             <li>
-                                <a th:href="@{/grupos_equipamentos}">Cadastro de Grupos de Equipamentos</a>
+                                <a th:href="@{/grupos_produtos}">Grupos de Produtos</a>
                             </li>
+                        </ul>
+                        <a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <i class="fas fa-truck-monster"></i>
+                            Equipamentos
+                        </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu5">
                             <li>
-                                <a th:href="@{/grupos_produtos}">Cadastro de Grupos de Produtos</a>
-                            </li>
+                                <a th:href="@{/equipamentos}">Equipamentos</a>
+                            </li>  
                             <li>
-                                <a th:href="@{/operadores}">Cadastro de Operadores</a>
-                            </li>
-                            <li>
-                                <a th:href="@{/usuarios}">Cadastro de Usuarios</a>
-                            </li>
-                            <li>
-                                <a th:href="@{/safras}">Cadastro de Safras</a>
-                            </li>
-                            <li>
-                                <a th:href="@{/talhoes}">Cadastro de Talhões</a>
-                            </li>
-                            <li>
-                                <a th:href="@{/unidades_medida}">Cadastro de Unidades de Medida</a>
-                            </li>
-                            <li>
-                                <a th:href="@{/equipamentos}">Cadastro de Equipamentos (Não finalizado)</a>
-                            </li>
-                            <li>
-                                <a th:href="@{/custos_equipamentos}">Cadastro de Custos de Equipamentos (Não finalizado)</a>
+                                <a th:href="@{/grupos_equipamentos}">Grupos de Equipamentos</a>
                             </li>
                         </ul>
                     </li>                                    
@@ -96,17 +125,11 @@ and open the template in the editor.
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="nav navbar-nav ml-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="#">Page</a>
+                                    <a class="nav-link" href="#">Dashboard</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Page</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Page</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Page</a>
-                                </li>
+                                    <a class="nav-link" href="#">Logout</a>
+                                </li>                                
                             </ul>
                         </div>
                     </div>

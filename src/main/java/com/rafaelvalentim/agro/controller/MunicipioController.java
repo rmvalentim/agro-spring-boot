@@ -68,14 +68,14 @@ public class MunicipioController {
     }
 
     @PostMapping("municipios/adicionar{id}")
-    public String confirmaAdicionar(Municipio municipio, @RequestParam Long estado) {
-        municipio.setEstado(estadoDAO.findById(estado));
+    public String confirmaAdicionar(Municipio municipio, @RequestParam Long estadoid) {
+        municipio.setEstado(estadoDAO.findById(estadoid));
         this.municipioDAO.save(municipio);
         return "redirect:/municipios";        
     }
    
     @PostMapping("municipios/atualizar{id}")
-    public String confirmaAtualizar(Municipio municipio, Long id) {
+    public String confirmaAtualizar(Municipio municipio, Long id, @RequestParam Long estadoid) {
         municipio.setId(id);
         this.municipioDAO.save(municipio);
         return "redirect:/municipios";

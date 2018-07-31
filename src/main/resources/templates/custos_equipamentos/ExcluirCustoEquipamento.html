@@ -9,17 +9,21 @@
                 <nav th:replace="Layout :: barra"></nav>
                 <div class="content-page">   
                     <div class="container-fluid">
-                        <div th:each="estado : ${estado}" class="container detalhesEvento">
-                            <h2>Excluir entidade</h2>
+                        <div th:each="custoequipamento : ${custoEquipamento}" class="container detalhesEvento">
+                            <h2>Excluir Custo de Equipamento</h2>
                             <label for="id">Id</label>
-                            <p th:text="${estado.id}" id="id"></p>
-                            <label for="codigo">Código</label>
-                            <p th:text="${estado.codigo}" id="codigo"></p>
-                            <label for="descricao">Descrição</label>
-                            <p th:text="${estado.descricao}" id="descricao"></p>
-                            <form class="form-inline" method="POST" th:action="@{/estados/excluir(id=${estado.id})}" style="margin: 20px 0">
+                            <p th:text="${custoequipamento.id}" id="id"></p>
+                            <label for="equipamento">Equipamento</label>
+                            <p th:text="${custoequipamento.equipamento.descricao}" id="equipamento"></p>
+                            <label for="marca">Safra</label>
+                            <p th:text="${custoequipamento.safra.descricao}" id="safra"></p>
+                            <label for="custoReal">Custo Real R$</label>
+                            <p th:text="${custoequipamento.custoReal}" id="custoReal"></p>
+                            <label for="custoDollar">Custo Dollar US$</label>
+                            <p th:text="${custoequipamento.custoDollar}" id="custoDollar"></p> 
+                            <form class="form-inline" method="POST" th:action="@{/custos_equipamentos/excluir(id=${custoequipamento.id})}" style="margin: 20px 0">
                                 <div class="form-group">
-                                    <a class="btn btn-danger" th:href="@{/estados}">Cancelar</a>
+                                    <a class="btn btn-danger" th:href="@{/custos_equipamentos}">Cancelar</a>
                                     <button type="submit" class="btn btn-success">Excluir</button> 
                                 </div> 
                             </form>                  

@@ -15,7 +15,7 @@
 
                 <div class="form-group">
                     <label>Equipamento</label>
-                    <select name="equipamento" class="form-control">
+                    <select name="equipamentoId" class="form-control">
                         <option value="">Selecione o equipamento</option>
                         <option th:each="equipamento : ${equipamentos}"
                                 th:value="${equipamento.id}" 
@@ -26,7 +26,7 @@
 
                 <div class="form-group">
                     <label>Safra</label>
-                    <select name="safra" class="form-control">
+                    <select name="safraId" class="form-control">
                         <option value="">Selecione a safra</option>
                         <option th:each="safra : ${safras}"
                                 th:value="${safra.id}" 

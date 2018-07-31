@@ -4,21 +4,24 @@
     <head th:replace="Layout :: head"></head>
     <body>
         <div class="wrapper">
-            <nav th:replace="Layout :: menu"></nav>
-
+            <nav th:replace="Layout :: menu"></nav>        
             <div id="content">
                 <nav th:replace="Layout :: barra"></nav>
-                <div class="content-page">       
+                <div class="content-page">      
                     <div class="container-fluid">
-                        <div th:each="estado : ${estado}" class="container detalhesEvento">        
-                            <h2>Detalhar entidade</h2>
+                        <div th:each="custoEquipamento : ${custoEquipamento}" class="container detalhesEvento">        
+                            <h2>Detalhar Custo de Equipamento</h2>
                             <label for="id">Id</label>
-                            <p th:text="${estado.id}" id="id"></p>
-                            <label for="codigo">Código</label>
-                            <p th:text="${estado.codigo}" id="codigo"></p>
-                            <label for="descricao">Descrição</label>
-                            <p th:text="${estado.descricao}" id="descricao"></p>
-                            <a class="btn btn-danger" th:href="@{/estados}">Cancelar</a>
+                            <p th:text="${custoEquipamento.id}" id="id"></p>
+                            <label for="equipamento">Equipamento</label>
+                            <p th:text="${custoEquipamento.equipamento.descricao}" id="equipamento"></p>
+                            <label for="marca">Safra</label>
+                            <p th:text="${custoEquipamento.safra.descricao}" id="safra"></p>
+                            <label for="custoReal">Custo Real R$</label>
+                            <p th:text="${custoEquipamento.custoReal}" id="custoReal"></p>
+                            <label for="custoDollar">Custo Dollar US$</label>
+                            <p th:text="${custoEquipamento.custoDollar}" id="custoDollar"></p>                            
+                            <a class="btn btn-success" th:href="@{/custos_equipamentos}">Voltar</a>
                         </div>            
                     </div>
                 </div> 

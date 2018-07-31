@@ -6,10 +6,14 @@
 package com.rafaelvalentim.agro.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -29,6 +33,10 @@ public class Operador implements Serializable {
     private String nomeCompleto;
     private String nomeReduzido;
     private String codigoRegistro;
+    
+    @OneToMany
+    @JoinColumn(name = "custo_operador_id")
+    private List<CustoOperador> custosOperadores = new ArrayList<>();
 
     /**
      * @return the id

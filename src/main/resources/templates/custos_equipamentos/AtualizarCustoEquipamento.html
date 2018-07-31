@@ -16,22 +16,24 @@
 
                                 <div class="form-group">
                                     <label>Equipamento</label>
-                                    <select name="equipamento" class="form-control">
+                                    <select name="equipamentoId" class="form-control">
                                         <option value="">Selecione o equipamento</option>
                                         <option th:each="equipamento : ${equipamentos}"
                                                 th:value="${equipamento.id}" 
-                                                th:text="${equipamento.descricao}"></option>
+                                                th:text="${equipamento.descricao}"
+                                                th:selected="${equipamento.id == custoEquipamento.equipamento.id}"></option>
                                     </select>
                                     <small class="form-text text-muted">Campo obrigatório</small>                
                                 </div>    
 
                                 <div class="form-group">
                                     <label>Safra</label>
-                                    <select name="safra" class="form-control">
+                                    <select name="safraId" class="form-control">
                                         <option value="">Selecione a safra</option>
                                         <option th:each="safra : ${safras}"
                                                 th:value="${safra.id}" 
-                                                th:text="${safra.descricao}"></option>
+                                                th:text="${safra.descricao}"
+                                                th:selected="${safra.id == custoEquipamento.safra.id}"></option>
                                     </select>
                                     <small class="form-text text-muted">Campo obrigatório</small>                
                                 </div>                  
@@ -50,7 +52,7 @@
 
                                 <div class="form-group">
                                     <a class="btn btn-danger" th:href="@{/custos_equipamentos}">Cancelar</a>
-                                    <button type="submit" class="btn btn-success">Adicionar</button> 
+                                    <button type="submit" class="btn btn-success">Atualizar</button> 
                                 </div> 
                         </div> 
                         </form> 

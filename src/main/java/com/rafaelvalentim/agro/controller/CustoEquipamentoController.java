@@ -73,16 +73,18 @@ public class CustoEquipamentoController {
     }
 
     @PostMapping("custos_equipamentos/adicionar{id}")
-    public String confirmaAdicionar(CustoEquipamento custoEquipamento, @RequestParam Long equipamento, @RequestParam Long safra) {
-        custoEquipamento.setEquipamento(equipamentoDAO.findById(equipamento));
-        custoEquipamento.setSafra(safraDAO.findById(safra));
+    public String confirmaAdicionar(CustoEquipamento custoEquipamento, @RequestParam Long equipamentoId, @RequestParam Long safraId) {
+        custoEquipamento.setEquipamento(equipamentoDAO.findById(equipamentoId));
+        custoEquipamento.setSafra(safraDAO.findById(safraId));
         this.custoEquipamentoDAO.save(custoEquipamento);
         return "redirect:/custos_equipamentos";        
     }
    
     @PostMapping("custos_equipamentos/atualizar{id}")
-    public String confirmaAtualizar(CustoEquipamento custoEquipamento, Long id) {
+    public String confirmaAtualizar(CustoEquipamento custoEquipamento, Long id, @RequestParam Long equipamentoId, @RequestParam Long safraId) {
         custoEquipamento.setId(id);
+        custoEquipamento.setEquipamento(equipamentoDAO.findById(equipamentoId));
+        custoEquipamento.setSafra(safraDAO.findById(safraId));
         this.custoEquipamentoDAO.save(custoEquipamento);
         return "redirect:/custos_equipamentos";
     }
