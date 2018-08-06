@@ -9,33 +9,35 @@
                 <nav th:replace="Layout :: barra"></nav>
                 <div class="content-page">   
                     <div class="container">  
-                        <a class="btn btn-success" th:href="@{/unidades_produtivas/adicionar}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Unidade Produtiva</a>
+                        <a class="btn btn-success" th:href="@{/produtos/adicionar}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Produto</a>
                         <div class="panel panel-default" style="margin: 10px">
                             <div class="panel-heading">
                                 <h1  class="panel-title">
-                                    Lista de Unidades Produtivas
+                                    Lista de Produtos
                                 </h1>
                             </div>                
                             <div class="panel-body">                    
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Nome Fantasia</th>
-                                            <th>CPF/CNPJ</th>
-                                            <th>Municipio</th>
+                                            <th>Descrição</th>
+                                            <th>Descrição Reduzida</th>
+                                            <th>Unidade de Medida</th>
+                                            <th>Grupo</th>
                                             <th>Visualizar</th>
                                             <th>Editar</th>
                                             <th>Excluir</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="unidadeProdutiva : ${unidadesProdutivas}">
-                                            <td th:text="${unidadeProdutiva.nomeFantasia}"></td>                                            
-                                            <td th:text="${unidadeProdutiva.cpfCnpj}"></td>                                            
-                                            <td th:text="${unidadeProdutiva.Municipio.descricao}"></td>
-                                            <td><a th:href="@{/unidades_produtivas/detalhar(id=${unidadeProdutiva.id})}"><i class="fas fa-search"></i></a></td>
-                                            <td><a th:href="@{/unidades_produtivas/atualizar(id=${unidadeProdutiva.id})}"><i class="far fa-edit"></i></a></td>
-                                            <td><a th:href="@{/unidades_produtivas/excluir(id=${unidadeProdutiva.id})}"><i class="far fa-trash-alt"></i></a></td>
+                                        <tr th:each="produto : ${produtos}">
+                                            <td th:text="${produto.descricao}"></td>
+                                            <td th:text="${produto.descricaoReduzida}"></td>
+                                            <td th:text="${produto.UnidadeMedida.codigo}"></td>
+                                            <td th:text="${produto.GrupoProduto.descricao}"></td>
+                                            <td><a th:href="@{/produtos/detalhar(id=${produto.id})}"><i class="fas fa-search"></i></a></td>
+                                            <td><a th:href="@{/produtos/atualizar(id=${produto.id})}"><i class="far fa-edit"></i></a></td>
+                                            <td><a th:href="@{/produtos/excluir(id=${produto.id})}"><i class="far fa-trash-alt"></i></a></td>
                                         </tr>
                                     </tbody>
                                 </table>                                

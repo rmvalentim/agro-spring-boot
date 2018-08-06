@@ -24,8 +24,8 @@ and open the template in the editor.
             <!-- Sidebar  -->
             <nav id="sidebar" th:fragment="menu">
                 <div class="sidebar-header">
-                    <h3>Agro</h3>
-                    <strong>Ag</strong>
+                    <h3><a th:href="@{/}">Agro</a></h3>
+                    <strong><a th:href="@{/}">Ag</a></strong>
                 </div>
                 <ul class="list-unstyled components">
                     <li class="active">
@@ -55,6 +55,9 @@ and open the template in the editor.
                             Cadastros
                         </a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a th:href="@{/unidades_produtivas}">Unidades Produtivas</a>
+                            </li>
                             <li>
                                 <a th:href="@{/estados}">Estados</a>
                             </li>
@@ -88,6 +91,9 @@ and open the template in the editor.
                             Produtos
                         </a>
                         <ul class="collapse list-unstyled" id="homeSubmenu4">
+                            <li>
+                                <a th:href="@{/produtos}">Produtos</a>
+                            </li>
                             <li>
                                 <a th:href="@{/grupos_produtos}">Grupos de Produtos</a>
                             </li>

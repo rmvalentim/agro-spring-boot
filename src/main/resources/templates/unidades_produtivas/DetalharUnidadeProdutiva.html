@@ -1,33 +1,38 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html xmlns= "http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width"/>
-        <title>Titulo</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    </head>
-    <body>        
-        <div class="container-fluid">
-            <div th:each="estado : ${estado}" class="container detalhesEvento">        
-                <h2>Detalhar entidade</h2>
-                <label for="id">Id</label>
-                <p th:text="${estado.id}" id="id"></p>
-                <label for="codigo">Código</label>
-                <p th:text="${estado.codigo}" id="codigo"></p>
-                <label for="descricao">Descrição</label>
-                <p th:text="${estado.descricao}" id="descricao"></p>
-                <a class="btn btn-danger" th:href="@{/estados}">Cancelar</a>
-            </div>            
-        </div>
-
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <head th:replace="Layout :: head"></head>
+    <body>
+        <div class="wrapper">
+            <nav th:replace="Layout :: menu"></nav>        
+            <div id="content">
+                <nav th:replace="Layout :: barra"></nav>
+                <div class="content-page">       
+                    <div class="container-fluid">
+                        <div th:each="unidadeProdutiva : ${unidadeProdutiva}" class="container detalhesEvento">        
+                            <h2>Detalhar Unidade Produtiva</h2>
+                            <label for="id">Id</label>
+                            <p th:text="${unidadeProdutiva.id}" id="id"></p>
+                            <label for="descricao">Nome Fantasia</label>
+                            <p th:text="${unidadeProdutiva.nomeFantasia}" id="nomeFantasia"></p>   
+                            <label for="razaoSocial">Razão Social</label>
+                            <p th:text="${unidadeProdutiva.razaoSocial}" id="razaoSocial"></p>   
+                            <label for="cpfCnpj">CPF/CNPJ</label>
+                            <p th:text="${unidadeProdutiva.cpfCnpj}" id="cpfCnpj"></p>   
+                            <label for="inscricaoEstadual">Inscrição Estadual</label>
+                            <p th:text="${unidadeProdutiva.inscricaoEstadual}" id="inscricaoEstadual"></p>   
+                            
+                            <label for="municipio">Municipio</label>
+                            <p th:text="${unidadeProdutiva.Municipio.descricao}" id="municipio"></p>
+                            <a class="btn btn-success" th:href="@{/unidades_produtivas}">Voltar</a>
+                        </div>            
+                    </div>
+                </div> 
+            </div>
+        </div>    
+        <script th:replace="Layout :: jquery"></script>
+        <script th:replace="Layout :: popper"></script>
+        <script th:replace="Layout :: bootstrap"></script>
+        <script th:replace="Layout :: js"></script>
     </body>
 </html>

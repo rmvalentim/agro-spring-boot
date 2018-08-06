@@ -1,37 +1,20 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html xmlns= "http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Home</title>
-        <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width"/>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    </head>
-    <body>       
-        <h1>Seja bem vindo! </h1>
-
-        <ul class="list-group">
-            <li class="list-group-item"><a th:href="@{/estados}">Cadastro de Estados</a></li>
-            <li class="list-group-item"><a th:href="@{/municipios}">Cadastro de Municipios</a></li>           
-            <li class="list-group-item"><a th:href="@{/atividades_agricolas}">Cadastro de Atividades Agricolas</a></li>           
-            <li class="list-group-item"><a th:href="@{/culturas}">Cadastro de Culturas</a></li>
-            <li class="list-group-item"><a th:href="@{/grupos_equipamentos}">Cadastro de Grupos de Equipamentos</a></li>
-            <li class="list-group-item"><a th:href="@{/grupos_produtos}">Cadastro de Grupos de Produtos</a></li>
-            <li class="list-group-item"><a th:href="@{/operadores}">Cadastro de Operadores</a></li>
-            <li class="list-group-item"><a th:href="@{/usuarios}">Cadastro de Usuarios</a></li>
-            <li class="list-group-item"><a th:href="@{/safras}">Cadastro de Safras</a></li>
-            <li class="list-group-item"><a th:href="@{/talhoes}">Cadastro de Talhões</a></li>
-            <li class="list-group-item"><a th:href="@{/unidades_medida}">Cadastro de Unidades de Medida</a></li>
-            <li class="list-group-item"><a th:href="@{/equipamentos}">Cadastro de Equipamentos</a></li>
-            <li class="list-group-item"><a th:href="@{/custos_equipamentos}">Cadastro de Custos de Equipamentos (Não finalizado)</a></li>
-        </ul>        
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <head th:replace="Layout :: head"></head>
+    <body>
+        <div class="wrapper">
+            <nav th:replace="Layout :: menu"></nav>
+            <div id="content">
+                <nav th:replace="Layout :: barra"></nav>
+                <div class="content-page">
+                    HOME
+                </div> 
+            </div>
+        </div>    
+        <script th:replace="Layout :: jquery"></script>
+        <script th:replace="Layout :: popper"></script>
+        <script th:replace="Layout :: bootstrap"></script>
+        <script th:replace="Layout :: js"></script>
     </body>
 </html>

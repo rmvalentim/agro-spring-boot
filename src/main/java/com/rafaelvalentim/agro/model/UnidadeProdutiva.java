@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -24,11 +25,14 @@ public class UnidadeProdutiva implements Serializable {
     private Long id;
     
     private String nomeFantasia;
-    private String razaoSocial;
-    private Municipio municipio;
+    private String razaoSocial;    
     private String cpfCnpj;
     private String inscricaoEstadual;
-    private Date dataCadastro;
+    private Date dataCadastro;    
+    
+    @ManyToOne
+    private Municipio municipio;
+    
 
     public Long getId() {
         return id;
