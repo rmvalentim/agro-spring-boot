@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns= "http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="Layout :: head"></head>
+    <body>
+        <div class="wrapper">
+            <nav th:replace="Layout :: menu"></nav>
+            <div id="content">
+                <nav th:replace="Layout :: barra"></nav>
+                <div class="content-page">  
+                    <div class="container">
+                        <h2>Adicionar Apontamento</h2>
+                        <form method="POST" th:object="${apontamento}" th:action="@{/apontamentos/adicionar(id=${apontamento.id})}" style="margin: 20px 0">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md">
+                                        <label for="boletim">Boletim</label>
+                                        <select name="boletim" class="form-control">
+                                            <option value="">Selecione o Boletim</option>
+                                            <option></option>
+                                        </select> 
+                                    </div>
+                                    <div class="col-md">
+                                        <label for="cultura">Cultura</label>
+                                        <select name="cultura" class="form-control">
+                                            <option value="">Selecione a Cultura</option>
+                                            <option></option>
+                                        </select> 
+                                    </div>                                    
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <label for="talhao">Talhão</label>
+                                        <select name="talhaoid" class="form-control">
+                                            <option value="">Selecione o Talhão</option>
+                                            <option></option>
+                                        </select> 
+                                    </div>
+                                    <div class="col-md">                                        
+                                        <label for="hectares">Hectares</label>
+                                        <input type="number" id="descricao" class="form-control" placeholder="0,00"/>
+                                    </div>                                    
+                                </div>
+                                <hr>        
+                                <div class="row">
+                                    <div class="col-md">
+                                        <label for="operacao">Operação Agrícola</label>
+                                        <select name="operacao" class="form-control">
+                                            <option value="">Selecione a Operação Agrícola</option>
+                                            <option></option>
+                                        </select>
+                                    </div>                                                                       
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <label for="equipamento">Equipamento</label>
+                                        <select name="equipamentoid" class="form-control">
+                                            <option value="">Selecione o Equipamento</option>
+                                            <option></option>
+                                        </select> 
+                                    </div>
+                                    <div class="col-md">
+                                        <label for="equipamentoapoio">Equipamento de Apoio</label>
+                                        <select name="equipamentoapoioid" class="form-control">
+                                            <option value="">Selecione o Equipamento</option>
+                                            <option></option>
+                                        </select> 
+                                    </div>                                    
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <label for="operador">Operador</label>
+                                        <select name="operadorid" class="form-control">
+                                            <option value="">Selecione a Operador</option>
+                                            <option></option>
+                                        </select> 
+                                    </div>
+                                    <div class="col-md">
+                                        <label for="operadorapoio">Operador de Apoio</label>
+                                        <select name="operadorapoioid" class="form-control">
+                                            <option value="">Selecione a Operador</option>
+                                            <option></option>
+                                        </select> 
+                                    </div>                                    
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <a class="btn btn-danger" th:href="@{/apontamentos}">Cancelar</a>
+                                    <button type="submit" class="btn btn-success">Adicionar</button> 
+                                </div>
+                            </div>                                              
+                                                 
+                        </form>           
+                    </div>
+                </div> 
+            </div>
+        </div>    
+        <script th:replace="Layout :: jquery"></script>
+        <script th:replace="Layout :: popper"></script>
+        <script th:replace="Layout :: bootstrap"></script>
+        <script th:replace="Layout :: js"></script>
+    </body>
+</html>

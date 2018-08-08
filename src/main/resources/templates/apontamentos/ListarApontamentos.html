@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns= "http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="Layout :: head"></head>
+    <body>
+        <div class="wrapper">
+            <nav th:replace="Layout :: menu"></nav>        
+            <div id="content">
+                <nav th:replace="Layout :: barra"></nav>
+                <div class="content-page"> 
+                    <div class="container">                          
+                        <div class="panel panel-default" style="margin: 10px">
+                            <div class="panel-heading">
+                                <h1  class="panel-title">
+                                    Boletim numero: XX / Data: 01/01/2018
+                                </h1>
+                            </div> 
+                            <a class="btn btn-success" th:href="@{/apontamentos/adicionar}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Apontamento</a>
+                            <div class="panel-body"> 
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Cultura</th>
+                                            <th>Talhão</th>
+                                            <th>Operação</th>
+                                            <th><i class="fas fa-search"></i></th>
+                                            <th><i class="far fa-edit"></i></th>
+                                            <th><i class="far fa-trash-alt"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><a th:href="@{/apontamentos/detalhar(id=${cultura.id})}"><i class="fas fa-search"></i></a></td>
+                                            <td><a th:href="@{/apontamentos/atualizar(id=${cultura.id})}"><i class="far fa-edit"></i></a></td>
+                                            <td><a th:href="@{/apontamentos/excluir(id=${cultura.id})}"><i class="far fa-trash-alt"></i></a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> 
+                        </div>
+                    </div>    
+                    <script th:replace="Layout :: jquery"></script>
+                    <script th:replace="Layout :: popper"></script>
+                    <script th:replace="Layout :: bootstrap"></script>
+                    <script th:replace="Layout :: js"></script>
+                    </body>
+                    </html>
+

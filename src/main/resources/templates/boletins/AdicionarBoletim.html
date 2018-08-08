@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns= "http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="Layout :: head"></head>
+    <body>
+        <div class="wrapper">
+            <nav th:replace="Layout :: menu"></nav>
+            <div id="content">
+                <nav th:replace="Layout :: barra"></nav>
+                <div class="content-page">  
+                    <div class="container">
+                        <h2>Adicionar Boletim</h2>
+                        <form method="POST" style="margin: 20px 0">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <label for="unidade">Unidade</label>
+                                        <select name="unidadeid" class="form-control">
+                                            <option value="">Selecione a Unidade</option>
+                                            <option></option>
+                                        </select>                                        
+                                    </div>
+                                    <div class="col-sm">
+                                        <label for="safra">Safra</label>
+                                        <select name="safraid" class="form-control">
+                                            <option value="">Selecione a Safra</option>
+                                            <option></option>
+                                        </select>                                        
+                                    </div>
+                                    <div class="col-sm">
+                                        <label for="data">Data</label>
+                                        <input type="date" id="data" class="form-control"/>                                        
+                                    </div>                                    
+                                </div>
+                                <div class="form-group">    
+                                    <label for="descricao">Observação</label>
+                                    <input type="text" id="observacao" class="form-control" placeholder="Observação"/>                                                                  
+                                </div> 
+                                <div class="form-group">
+                                    <a class="btn btn-danger" th:href="@{/boletins}">Cancelar</a>
+                                    <button type="submit" class="btn btn-success float-right"><a class="btn btn-danger" th:href="@{/apontamentos}">Adicionar e realizar Apontamentos</a></button> 
+                                </div> 
+                            </div>
+                        </form>           
+                    </div>
+                </div> 
+            </div>
+        </div>    
+        <script th:replace="Layout :: jquery"></script>
+        <script th:replace="Layout :: popper"></script>
+        <script th:replace="Layout :: bootstrap"></script>
+        <script th:replace="Layout :: js"></script>
+    </body>
+</html>
