@@ -10,35 +10,39 @@
                 <div class="content-page">  
                     <div class="container">
                         <h2>Adicionar Boletim</h2>
-                        <form method="POST" style="margin: 20px 0">
+                        <form method="GET" th:object="${boletim}" th:action="@{/boletim/apontamentos}" style="margin: 20px 0">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-sm">
                                         <label for="unidade">Unidade</label>
                                         <select name="unidadeid" class="form-control">
                                             <option value="">Selecione a Unidade</option>
-                                            <option></option>
+                                            <option th:each="unidade : ${unidades}"
+                                            th:value="${unidade.id}" 
+                                            th:text="${unidade.nomeFantasia}"></option>
                                         </select>                                        
                                     </div>
                                     <div class="col-sm">
                                         <label for="safra">Safra</label>
                                         <select name="safraid" class="form-control">
                                             <option value="">Selecione a Safra</option>
-                                            <option></option>
+                                            <option th:each="safra : ${safras}"
+                                            th:value="${safra.id}" 
+                                            th:text="${safra.descricao}"></option>
                                         </select>                                        
                                     </div>
                                     <div class="col-sm">
                                         <label for="data">Data</label>
-                                        <input type="date" id="data" class="form-control"/>                                        
+                                        <input type="date" id="data" class="form-control" th:field="*{data}"/>                                        
                                     </div>                                    
                                 </div>
                                 <div class="form-group">    
                                     <label for="descricao">Observação</label>
-                                    <input type="text" id="observacao" class="form-control" placeholder="Observação"/>                                                                  
+                                    <input type="text" id="observacao" class="form-control" placeholder="Observação"  th:field="*{observacao}"/>                                                                  
                                 </div> 
                                 <div class="form-group">
                                     <a class="btn btn-danger" th:href="@{/boletins}">Cancelar</a>
-                                    <button type="submit" class="btn btn-success float-right"><a class="btn btn-danger" th:href="@{/apontamentos}">Adicionar e realizar Apontamentos</a></button> 
+                                    <button type="submit" class="btn btn-success float-right">Adicionar e realizar Apontamentos</button> 
                                 </div> 
                             </div>
                         </form>           

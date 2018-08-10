@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -37,6 +38,7 @@ private static long serialVersionUID = 1L;
     @ManyToOne
     private Safra safra;
     
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data;
     
     private String observacao;

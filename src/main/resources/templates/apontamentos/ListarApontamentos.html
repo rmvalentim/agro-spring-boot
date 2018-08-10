@@ -11,11 +11,12 @@
                     <div class="container">                          
                         <div class="panel panel-default" style="margin: 10px">
                             <div class="panel-heading">
-                                <h1  class="panel-title">
-                                    Boletim numero: XX / Data: 01/01/2018
-                                </h1>
+                                <h3 class="panel-title">
+                                    Boletim nº: <strong th:text="${boletim.id}">title</strong> - Data: <strong th:text="${#dates.format(boletim.data, 'dd/MM/yyyy')}">title</strong>
+                                </h3>
                             </div> 
-                            <a class="btn btn-success" th:href="@{/apontamentos/adicionar}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Apontamento</a>
+                            <a class="btn btn-success" th:href="@{/apontamentos/adicionar(id=${boletim.id})}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Apontamento</a>
+                            
                             <div class="panel-body"> 
                                 <table class="table">
                                     <thead>
@@ -34,9 +35,10 @@
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                            <td><a th:href="@{/apontamentos/detalhar(id=${cultura.id})}"><i class="fas fa-search"></i></a></td>
-                                            <td><a th:href="@{/apontamentos/atualizar(id=${cultura.id})}"><i class="far fa-edit"></i></a></td>
-                                            <td><a th:href="@{/apontamentos/excluir(id=${cultura.id})}"><i class="far fa-trash-alt"></i></a></td>
+                                            <td></td>
+                                            <td><i class="fas fa-search"></i></td>
+                                            <td><i class="far fa-edit"></i></td>
+                                            <td><i class="far fa-trash-alt"></i></td>
                                         </tr>
                                     </tbody>
                                 </table>
