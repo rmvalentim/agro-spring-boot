@@ -130,6 +130,20 @@ private static long serialVersionUID = 1L;
     public void setObservacao(String observacao) {
         this.observacao = observacao;
     }
+
+    /**
+     * @return the apontamentos
+     */
+    public List<Apontamento> getApontamentos() {
+        return apontamentos;
+    }
+
+    /**
+     * @param apontamentos the apontamentos to set
+     */
+    public void setApontamentos(List<Apontamento> apontamentos) {
+        this.apontamentos = apontamentos;
+    }
     
     
     

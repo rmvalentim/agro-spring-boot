@@ -24,8 +24,7 @@
                                             <th>Safra</th>
                                             <th>Data</th>
                                             <th><i class="fas fa-search"></i></th>
-                                            <th><i class="far fa-edit"></i></th>
-                                            <th><i class="far fa-trash-alt"></i></th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -33,9 +32,7 @@
                                             <td th:text="${boletim.UnidadeProdutiva.nomeFantasia}"></td>
                                             <td th:text="${boletim.Safra.descricao}"></td>
                                             <td th:text="${#dates.format(boletim.data, 'dd/MM/yyyy')}"></td>
-                                            <td><a th:href="@{/boletins/detalhar(id=${boletim.id})}"><i class="fas fa-search"></i></a></td>
-                                            <td><a th:href="@{/boletins/atualizar(id=${boletim.id})}"><i class="far fa-edit"></i></a></td>
-                                            <td><a th:href="@{/boletins/excluir(id=${boletim.id})}"><i class="far fa-trash-alt"></i></a></td>
+                                            <td><a th:href="@{/boletins/detalhar(id=${boletim.id})}"><i class="fas fa-search"></i></a></td>                                            
                                         </tr>
                                     </tbody>
                                 </table>

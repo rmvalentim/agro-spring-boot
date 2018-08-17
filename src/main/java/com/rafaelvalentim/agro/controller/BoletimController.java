@@ -5,10 +5,13 @@
  */
 package com.rafaelvalentim.agro.controller;
 
+import com.rafaelvalentim.agro.dao.ApontamentoDAO;
 import com.rafaelvalentim.agro.dao.BoletimDAO;
 import com.rafaelvalentim.agro.dao.SafraDAO;
 import com.rafaelvalentim.agro.dao.UnidadeProdutivaDAO;
+import com.rafaelvalentim.agro.model.Apontamento;
 import com.rafaelvalentim.agro.model.Boletim;
+import java.util.Collection;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +29,9 @@ public class BoletimController {
     
     @Autowired
     private BoletimDAO boletimDao;
+    
+    @Autowired
+    private ApontamentoDAO apontamentoDao;
     
     @Autowired 
     private UnidadeProdutivaDAO unidadeDAO;
@@ -47,5 +53,24 @@ public class BoletimController {
         mv.addObject("safras", safraDAO.findAll());
         mv.addObject(new Boletim());
 	return mv;
+    }
+    
+    @GetMapping("boletins/detalhar{id}")
+    public ModelAndView detalhar(Long id) {
+        ModelAndView mv = new ModelAndView("boletins/DetalharOuExcluirBoletim");
+        Boletim boletim = boletimDao.findById(id);
+        mv.addObject("boletim", boletim);
+        mv.addObject("apontamentos", apontamentoDao.findByBoletimId(id));
+	return mv;
+    }
+    
+    @PostMapping("boletins/excluir{id}")
+    public String confirmaExcluir(Long id) { 
+        Collection<Apontamento> apontamentos = apontamentoDao.findByBoletimId(id);
+        apontamentoDao.deleteAll(apontamentos);
+	Boletim boletim = boletimDao.findById(id);
+        this.boletimDao.delete(boletim);
+	return "redirect:/boletins";
+        
     }
 }

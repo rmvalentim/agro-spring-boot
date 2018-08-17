@@ -68,24 +68,25 @@
                                         </select> 
                                     </div>
                                     <div class="col-md">
-                                        <label for="equipamentoapoio">Equipamento de Apoio</label>
-                                        <select name="equipamentoapoioid" class="form-control">
-                                            <option value="">Selecione o Equipamento</option>
-                                            <option th:each="equipamento : ${equipamentos}"
-                                            th:value="${equipamento.id}" 
-                                            th:text="${equipamento.descricao + ' ' + equipamento.marca + ' ' + equipamento.modelo}"></option>
-                                        </select> 
-                                    </div>                                    
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md">
                                         <label for="operador">Operador</label>
                                         <select name="operadorid" class="form-control">
                                             <option value="">Selecione a Operador</option>
                                             <option th:each="operador : ${operadores}"
                                             th:value="${operador.id}" 
                                             th:text="${operador.nomeCompleto}"></option>
+                                        </select> 
+                                    </div>
+                                                                        
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <label for="equipamentoapoio">Equipamento de Apoio</label>
+                                        <select name="equipamentoapoioid" class="form-control">
+                                            <option value="">Selecione o Equipamento</option>
+                                            <option th:each="equipamento : ${equipamentos}"
+                                            th:value="${equipamento.id}" 
+                                            th:text="${equipamento.descricao + ' ' + equipamento.marca + ' ' + equipamento.modelo}"></option>
                                         </select> 
                                     </div>
                                     <div class="col-md">
@@ -98,6 +99,17 @@
                                         </select> 
                                     </div>                                    
                                 </div>
+                                <hr>
+                                <div class="row">                                    
+                                    <div class="col-md">                                        
+                                        <label for="horamaquina">Horas/Maquina</label>
+                                        <input type="number" id="horamaquina" class="form-control" placeholder="0,00" th:field="*{horasEquipamentos}"/>
+                                    </div>                                         
+                                    <div class="col-md">                                        
+                                        <label for="horahomem">Horas/Homem</label>
+                                        <input type="number" id="horahomem" class="form-control" placeholder="0,00" th:field="*{horasOperadores}"/>
+                                    </div>                                    
+                                </div>    
                                 <hr>
                                 <div class="row">
                                     <div class="col-md">
@@ -116,7 +128,8 @@
                                 </div>    
                                 <hr>
                                 <div class="form-group">
-                                    <a class="btn btn-danger" th:href="@{/apontamentos}">Cancelar</a>
+                                    <a class="btn btn-danger" th:href="@{/boletins}">Finalizar</a>
+                                    <a class="btn btn-primary" th:href="@{/boletins/detalhar(id=${boletim.id})}">Ver boletim</a>
                                     <button type="submit" class="btn btn-success">Adicionar</button> 
                                 </div>
                             </div>                                              

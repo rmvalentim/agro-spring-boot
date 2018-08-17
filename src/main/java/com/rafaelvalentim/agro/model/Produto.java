@@ -5,6 +5,7 @@
  */
 package com.rafaelvalentim.agro.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -30,9 +31,11 @@ public class Produto implements Serializable {
     private String descricao;
     private String descricaoReduzida;
     
+    @JsonIgnore
     @ManyToOne
     private UnidadeMedida unidadeMedida;
     
+    @JsonIgnore
     @ManyToOne
     private GrupoProduto grupoProduto;
     

@@ -5,6 +5,7 @@
  */
 package com.rafaelvalentim.agro.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,9 +36,11 @@ public class Equipamento implements Serializable {
     private String marca;
     private String modelo;
     
+    @JsonIgnore
     @ManyToOne
     private GrupoEquipamento grupoEquipamento;
     
+    @JsonIgnore
     @OneToMany
     @JoinColumn(name = "custo_equipamento_id")
     private List<CustoEquipamento> custosEquipamentos = new ArrayList<>();    

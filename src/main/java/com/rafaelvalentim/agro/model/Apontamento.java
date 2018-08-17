@@ -56,6 +56,11 @@ private static long serialVersionUID = 1L;
     private double quantidadeProduto;
     
     private double hectaresTrabalhados;
+    
+    private double horasEquipamentos;
+    
+    private double horasOperadores;
+            
 
     /**
      * @return the serialVersionUID
@@ -237,6 +242,34 @@ private static long serialVersionUID = 1L;
      */
     public void setHectaresTrabalhados(double hectaresTrabalhados) {
         this.hectaresTrabalhados = hectaresTrabalhados;
+    }
+
+    /**
+     * @return the horasEquipamentos
+     */
+    public double getHorasEquipamentos() {
+        return horasEquipamentos;
+    }
+
+    /**
+     * @param horasEquipamentos the horasEquipamentos to set
+     */
+    public void setHorasEquipamentos(double horasEquipamentos) {
+        this.horasEquipamentos = horasEquipamentos;
+    }
+
+    /**
+     * @return the horasOperadores
+     */
+    public double getHorasOperadores() {
+        return horasOperadores;
+    }
+
+    /**
+     * @param horasOperadores the horasOperadores to set
+     */
+    public void setHorasOperadores(double horasOperadores) {
+        this.horasOperadores = horasOperadores;
     }
     
     

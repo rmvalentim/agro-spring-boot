@@ -64,6 +64,13 @@ public class ApontamentoController {
         return mv;
     }
     
+    @GetMapping("apontamentos/detalhar{id}")
+    public ModelAndView detalhe(Long id) {
+        ModelAndView mv = new ModelAndView("apontamentos/DetalharApontamento");
+        mv.addObject("apontamento", apontamentoDao.findById(id));
+	return mv;
+    }
+    
     @GetMapping("apontamentos/adicionar{id}")
         public ModelAndView adicionar(Long id) {       
         ModelAndView mv = new ModelAndView("apontamentos/AdicionarApontamento");
@@ -102,6 +109,14 @@ public class ApontamentoController {
         
         this.apontamentoDao.save(apontamento);
         return "redirect:/apontamentos/adicionar?id="+boletimid;        
+    }
+    
+    @PostMapping("apontamentos/excluir{id}")
+    public String confirmaExcluir(Long id) {        
+	Apontamento apontamento = apontamentoDao.findById(id);
+        this.apontamentoDao.delete(apontamento);
+	return "redirect:/boletins";
+        
     }
    
 }

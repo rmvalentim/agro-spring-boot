@@ -14,4 +14,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface BoletimDAO extends JpaRepository<Boletim, String>{
     Boletim findById(long Id);
+    
 }

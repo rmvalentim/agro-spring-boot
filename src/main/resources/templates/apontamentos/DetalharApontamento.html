@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns= "http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="Layout :: head"></head>
+    <body>
+        <div class="wrapper">
+            <nav th:replace="Layout :: menu"></nav>        
+            <div id="content">
+                <nav th:replace="Layout :: barra"></nav>
+                <div class="content-page"> 
+                    <div th:each="apontamento : ${apontamento}" class="container detalhesEvento">        
+                        <h2>Detalhar Apontamento</h2>                            
+                        <label>Id:</label>
+                        <strong th:text="${apontamento.id}" id="id"></strong>  
+                        <br>
+                        <label>Cultura:</label>    
+                        <strong th:text="${apontamento.Cultura.descricao}" id="id"></strong>    
+                        <br>
+                        <label>Talhão:</label> 
+                        <strong th:text="${apontamento.Talhao.descricao}" id="id"></strong>    
+                        <br>
+                        <label>Quantidade Hectares:</label> 
+                        <strong th:text="${apontamento.hectaresTrabalhados}" id="id"></strong> 
+                        <br>
+                        <label>Operação Agrícola:</label> 
+                        <strong th:text="${apontamento.OperacaoAgricola.descricao}" id="id"></strong> 
+                        <br>    
+                        <label>Equipamento Principal:</label> 
+                        <strong th:text="${apontamento.equipamentoPrincipal.descricao}" id="id"></strong>                         
+                        <br>
+                        <label>Equipamento Apoio:</label> 
+                        <strong th:text="${apontamento.equipamentoApoio.descricao}" id="id"></strong> 
+                        <br>
+                        <label>Horas/Maquina:</label> 
+                        <strong th:text="${apontamento.horasEquipamentos}" id="id"></strong>                          
+                        <br>
+                        <label>Operador Principal:</label> 
+                        <strong th:text="${apontamento.operadorPrincipal.nomeCompleto}" id="id"></strong>                         
+                        <br>
+                        <label>Operador Ajudante:</label> 
+                        <strong th:text="${apontamento.operadorAjudante.nomeCompleto}" id="id"></strong> 
+                        <br>
+                        <label>Horas/Homem:</label> 
+                        <strong th:text="${apontamento.horasOperadores}" id="id"></strong>                         
+                        <br>
+                        <label>Produto:</label> 
+                        <strong th:text="${apontamento.Produto.descricao}" id="id"></strong>                         
+                        <br>
+                        <label>Quantidade Produto:</label> 
+                        <strong th:text="${apontamento.quantidadeProduto}" id="id"></strong>                         
+                        
+                        <form class="form-inline" method="POST" th:action="@{/apontamentos/excluir(id=${apontamento.id})}" style="margin: 20px 0">
+                                <div class="form-group">
+                                    <a class="btn btn-danger" th:href="@{/boletins}">Cancelar</a>
+                                    <button type="submit" class="btn btn-success">Excluir</button> 
+                                </div> 
+                            </form> 
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <script th:replace="Layout :: jquery"></script>
+        <script th:replace="Layout :: popper"></script>
+        <script th:replace="Layout :: bootstrap"></script>
+        <script th:replace="Layout :: js"></script>
+    </body>
+</html>
+

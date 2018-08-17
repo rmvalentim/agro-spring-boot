@@ -5,6 +5,7 @@
  */
 package com.rafaelvalentim.agro.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,6 +29,7 @@ public class OperacaoAgricola implements Serializable {
     
     private String descricao;
     
+    @JsonIgnore
     @ManyToOne
     private AtividadeAgricola atividadeAgricola;
 
