@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns= "http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="Layout :: head"></head>
+    <body>
+        <div class="wrapper">
+            <nav th:replace="Layout :: menu"></nav>        
+            <div id="content">
+                <nav th:replace="Layout :: barra"></nav>
+                <div class="content-page">      
+                    <div class="container-fluid">
+                        <div th:each="custoProduto : ${custoProduto}" class="container detalhesEvento">        
+                            <h2>Detalhar Custo de Produto</h2>
+                            <label for="id">Id</label>
+                            <p th:text="${custoProduto.id}" id="id"></p>
+                            <label for="produto">Produto</label>
+                            <p th:text="${custoProduto.produto.descricao}" id="produto"></p>
+                            <label for="marca">Safra</label>
+                            <p th:text="${custoProduto.safra.descricao}" id="safra"></p>
+                            <label for="custoReal">Custo Real R$</label>
+                            <p th:text="${custoProduto.custoReal}" id="custoReal"></p>
+                            <label for="custoDollar">Custo Dollar US$</label>
+                            <p th:text="${custoProduto.custoDollar}" id="custoDollar"></p>                            
+                            <a class="btn btn-success" th:href="@{/custos_produtos}">Voltar</a>
+                        </div>            
+                    </div>
+                </div> 
+            </div>
+        </div>    
+        <script th:replace="Layout :: jquery"></script>
+        <script th:replace="Layout :: popper"></script>
+        <script th:replace="Layout :: bootstrap"></script>
+        <script th:replace="Layout :: js"></script>
+    </body>
+</html>
+

@@ -43,6 +43,14 @@ public class Safra implements Serializable {
     private List<CustoEquipamento> custosEquipamentos = new ArrayList<>();  
     
     @OneToMany
+    @JoinColumn(name = "custo_operador_id")
+    private List<CustoOperador> custosOperadores = new ArrayList<>();  
+    
+    @OneToMany
+    @JoinColumn(name = "custo_produto_id")
+    private List<CustoProduto> custosProdutos = new ArrayList<>();  
+    
+    @OneToMany
     @JoinColumn(name = "boletim_id")
     private List<Boletim> boletins = new ArrayList<>();
 

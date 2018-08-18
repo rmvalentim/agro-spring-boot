@@ -7,8 +7,107 @@
             <nav th:replace="Layout :: menu"></nav>
             <div id="content">
                 <nav th:replace="Layout :: barra"></nav>
-                <div class="content-page">
-                    HOME
+                <div class="content-page">                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <a class="btn btn-sucess" th:href="@{/boletins}">
+                                    <div class="card text-white bg-success mb-3" style="max-width: 18rem; min-width: 16rem;">
+                                        <div class="card-header"><i class="fas fa-leaf"></i> Agro</div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Boletins</h5>                            
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm">
+                                <a class="btn btn-sucess" th:href="@{/atividades_agricolas}">
+                                    <div class="card text-white bg-success mb-3" style="max-width: 18rem; min-width: 16rem;">
+                                        <div class="card-header"><i class="fas fa-leaf"></i> Agro</div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Atividades Agrícolas</h5>                            
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm">
+                                <a class="btn btn-sucess" th:href="@{/operacoes_agricolas}">
+                                    <div class="card text-white bg-success mb-3" style="max-width: 18rem; min-width: 16rem;">
+                                        <div class="card-header"><i class="fas fa-leaf"></i> Agro</div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Operações Agrícolas</h5>                            
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <a class="btn btn-sucess" th:href="@{/unidades_produtivas}">    
+                                    <div class="card border-success mb-3" style="min-width: 16rem;">
+                                        <div class="card-header text-success"><i class="fas fa-plus"></i> Cadastros</div>
+                                        <div class="card-body text-success">
+                                            <h5 class="card-title">Unidades Produtivas</h5>                                        
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>    
+                            <div class="col-sm">
+                                <a class="btn btn-sucess" th:href="@{/produtos}">    
+                                    <div class="card border-success mb-3" style="min-width: 16rem;">
+                                        <div class="card-header text-success"><i class="fas fa-box"></i> Cadastros</div>
+                                        <div class="card-body text-success">
+                                            <h5 class="card-title">Produtos</h5>                                        
+                                        </div>
+                                    </div>
+                                </a>
+                            </div> 
+                            <div class="col-sm">
+                                <a class="btn btn-sucess" th:href="@{/equipamentos}">    
+                                    <div class="card border-success mb-3" style="min-width: 16rem;">
+                                        <div class="card-header text-success"><i class="fas fa-truck-monster"></i> Cadastros</div>
+                                        <div class="card-body text-success">
+                                            <h5 class="card-title">Equipamentos</h5>                                        
+                                        </div>
+                                    </div>
+                                </a>
+                            </div> 
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <a class="btn btn-sucess" th:href="@{/custos_equipamentos}">
+                                    <div class="card text-white bg-success mb-3" style="max-width: 18rem; min-width: 16rem;">
+                                        <div class="card-header"><i class="fas fa-dollar-sign"></i> Custos</div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Equipamentos</h5>                            
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm">
+                                <a class="btn btn-sucess" th:href="@{/custos_operadores}">
+                                    <div class="card text-white bg-success mb-3" style="max-width: 18rem; min-width: 16rem;">
+                                        <div class="card-header"><i class="fas fa-dollar-sign"></i> Custos</div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Operadores</h5>                            
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm">
+                                <a class="btn btn-sucess" th:href="@{/custos_produtos}">
+                                    <div class="card text-white bg-success mb-3" style="max-width: 18rem; min-width: 16rem;">
+                                        <div class="card-header"><i class="fas fa-dollar-sign"></i> Custos</div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Produtos</h5>                            
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+
+                    </div>
                 </div> 
             </div>
         </div>    

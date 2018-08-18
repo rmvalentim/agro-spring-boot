@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns= "http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="Layout :: head"></head>
+    <body>
+        <div class="wrapper">
+            <nav th:replace="Layout :: menu"></nav>        
+            <div id="content">
+                <nav th:replace="Layout :: barra"></nav>
+                <div class="content-page">  
+                    <div class="container">  
+                        <a class="btn btn-success" th:href="@{/custos_produtos/adicionar}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Custo de Produto</a>
+                        <div class="panel panel-default" style="margin: 10px">
+                            <div class="panel-heading">
+                                <h1  class="panel-title">
+                                    Lista de Custos de Produtos
+                                </h1>
+                            </div>                
+                            <div class="panel-body">                    
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Produto</th>
+                                            <th>Safra</th>
+                                            <th>Custo R$</th>
+                                            <th>Custo US$</th>
+                                            <th>Visualizar</th>
+                                            <th>Editar</th>
+                                            <th>Excluir</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="custoProduto : ${custos_produtos}">
+                                            <td th:text="${custoProduto.Produto.descricao}"></td>
+                                            <td th:text="${custoProduto.Safra.descricao}"></td>
+                                            <td th:text="${custoProduto.custoReal}"></td>
+                                            <td th:text="${custoProduto.custoDollar}"></td>
+                                            <td><a th:href="@{/custos_produtos/detalhar(id=${custoProduto.id})}"><i class="fas fa-search"></i></a></td>
+                                            <td><a th:href="@{/custos_produtos/atualizar(id=${custoProduto.id})}"><i class="far fa-edit"></i></a></td>
+                                            <td><a th:href="@{/custos_produtos/excluir(id=${custoProduto.id})}"><i class="far fa-trash-alt"></i></a></td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+
+                                <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+                                <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+                                </body>
+                            </div> 
+                        </div>
+                    </div>    
+<script th:replace="Layout :: jquery"></script>
+<script th:replace="Layout :: popper"></script>
+<script th:replace="Layout :: bootstrap"></script>
+<script th:replace="Layout :: js"></script>
+</body>
+</html>

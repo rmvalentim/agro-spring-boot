@@ -46,6 +46,7 @@
                                     <button type="submit" class="btn btn-success float-right">Excluir Boletim</button> 
                                 </div> 
                             </form> 
+                            <a class="btn btn-success" th:href="@{/apontamentos/adicionar(id=${boletim.id})}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Apontamento</a>
                         </div>            
                     </div>   
                     <script th:replace="Layout :: jquery"></script>
