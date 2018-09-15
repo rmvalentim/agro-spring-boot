@@ -97,15 +97,15 @@ public class ApontamentoController {
             @RequestParam("operadorapoioid") Long operadorapoioid,
             @RequestParam("produtoid") Long produtoid) {
         
-        apontamento.setBoletim(boletimDao.findById(boletimid));
+        apontamento.setBoletim(boletimDao.findById(boletimid));        
         apontamento.setCultura(culturaDao.findById(culturaid));
         apontamento.setTalhao(talhaoDao.findById(talhaoid));
         apontamento.setOperacaoAgricola(operacaoAgricolaDao.findById(operacaoid));
-        apontamento.setEquipamentoPrincipal(equipamentoDao.findById(equipamentoid));
-        apontamento.setEquipamentoApoio(equipamentoDao.findById(equipamentoapoioid));
-        apontamento.setOperadorPrincipal(operadorDao.findById(operadorid));
-        apontamento.setOperadorAjudante(operadorDao.findById(operadorapoioid));
-        apontamento.setProduto(produtoDao.findById(produtoid));
+        if(equipamentoid != null) apontamento.setEquipamentoPrincipal(equipamentoDao.findById(equipamentoid));
+        if(equipamentoapoioid != null) apontamento.setEquipamentoApoio(equipamentoDao.findById(equipamentoapoioid));
+        if(operadorid != null) apontamento.setOperadorPrincipal(operadorDao.findById(operadorid));
+        if(operadorapoioid != null) apontamento.setOperadorAjudante(operadorDao.findById(operadorapoioid));
+        if(produtoid != null) apontamento.setProduto(produtoDao.findById(produtoid));
         
         this.apontamentoDao.save(apontamento);
         return "redirect:/apontamentos/adicionar?id="+boletimid;        

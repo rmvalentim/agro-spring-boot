@@ -26,28 +26,28 @@
                         <strong th:text="${apontamento.OperacaoAgricola.descricao}" id="id"></strong> 
                         <br>    
                         <label>Equipamento Principal:</label> 
-                        <strong th:text="${apontamento.equipamentoPrincipal.descricao}" id="id"></strong>                         
+                        <strong th:text="${apontamento?.equipamentoPrincipal?.descricao}" id="id"></strong>                         
                         <br>
                         <label>Equipamento Apoio:</label> 
-                        <strong th:text="${apontamento.equipamentoApoio.descricao}" id="id"></strong> 
+                        <strong th:text="${apontamento?.equipamentoApoio?.descricao}" id="id"></strong> 
                         <br>
                         <label>Horas/Maquina:</label> 
-                        <strong th:text="${apontamento.horasEquipamentos}" id="id"></strong>                          
+                        <strong th:text="${apontamento?.horasEquipamentos}" id="id"></strong>                          
                         <br>
                         <label>Operador Principal:</label> 
-                        <strong th:text="${apontamento.operadorPrincipal.nomeCompleto}" id="id"></strong>                         
+                        <strong th:text="${apontamento?.operadorPrincipal?.nomeCompleto}" id="id"></strong>                         
                         <br>
                         <label>Operador Ajudante:</label> 
-                        <strong th:text="${apontamento.operadorAjudante.nomeCompleto}" id="id"></strong> 
+                        <strong th:text="${apontamento?.operadorAjudante?.nomeCompleto}" id="id"></strong> 
                         <br>
                         <label>Horas/Homem:</label> 
-                        <strong th:text="${apontamento.horasOperadores}" id="id"></strong>                         
+                        <strong th:text="${apontamento?.horasOperadores}" id="id"></strong>                         
                         <br>
                         <label>Produto:</label> 
-                        <strong th:text="${apontamento.Produto.descricao}" id="id"></strong>                         
+                        <strong th:text="${apontamento?.Produto?.descricao}" id="id"></strong>                         
                         <br>
                         <label>Quantidade Produto:</label> 
-                        <strong th:text="${apontamento.quantidadeProduto}" id="id"></strong>                         
+                        <strong th:text="${apontamento?.quantidadeProduto}" id="id"></strong>                         
                         
                         <form class="form-inline" method="POST" th:action="@{/apontamentos/excluir(id=${apontamento.id})}" style="margin: 20px 0">
                                 <div class="form-group">
