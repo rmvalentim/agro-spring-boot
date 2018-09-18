@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns= "http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="Layout :: head"></head>
+    <body>
+        <div class="wrapper">
+            <nav th:replace="Layout :: menu"></nav>        
+            <div id="content">
+                <nav th:replace="Layout :: barra"></nav>
+                <div class="content-page">  
+                    <div class="container">                        
+                        <div class="container-fluid">
+                            <h2>Relatório de Custo da Safra</h2>
+                            <form th:action="@{/relatorio_safra(id=${safra.id})}" style="margin: 20px 0">
+                                <div class="form-group">
+                                    <label>Selecione a Safra:</label>
+                                    <select name="safraid" class="form-control">
+                                        <option value="">Safra</option>
+                                        <option th:each="safra : ${safras}"
+                                                th:value="${safra.id}" 
+                                                th:text="${safra.descricao}"></option>
+                                    </select>                                             
+                                </div>
+                                <div class="form-group">                                
+                                    <button type="submit" class="btn btn-success">Gerar relatório</button> 
+                                </div> 
+                            </form>           
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>    
+        <script th:replace="Layout :: jquery"></script>
+        <script th:replace="Layout :: popper"></script>
+        <script th:replace="Layout :: bootstrap"></script>
+        <script th:replace="Layout :: js"></script>
+    </body>
+</html>

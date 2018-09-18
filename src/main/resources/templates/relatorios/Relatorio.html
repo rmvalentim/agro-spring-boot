@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns= "http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="Layout :: head"></head>
+    <body>
+        <div class="wrapper">
+            <nav th:replace="Layout :: menu"></nav>        
+            <div id="content">
+                <nav th:replace="Layout :: barra"></nav>
+                <div class="content-page">       
+                    <div class="container-fluid">
+                        <div th:each="custo : ${custo}" class="container detalhesEvento">        
+                            <table class="table">
+                                <tr>
+                                    <th th:text="${custo.safra}"></th>
+                                    <th  class="text-right" >Valor R$</th>
+                                    <th  class="text-right" >Valor US$</th>
+                                </tr>
+                                <tr>
+                                    <td>Custo Equipamentos Principais</td>
+                                    <td  class="text-right" th:text="${#numbers.formatDecimal(custo.custoEquipamentoPrincipalReal, 0, 'DEFAULT', 2, 'DEFAULT')}"></td>
+                                    <td  class="text-right" th:text="${#numbers.formatDecimal(custo.custoEquipamentoPrincipalDollar, 0, 'DEFAULT', 2, 'DEFAULT')}"></td>
+                                </tr>                                
+                                <tr>
+                                    <td>Custo Equipamentos Apoio</td>
+                                    <td  class="text-right" th:text="${#numbers.formatDecimal(custo.custoEquipamentoApoioReal, 0, 'DEFAULT', 2, 'DEFAULT')}"></td>
+                                    <td  class="text-right" th:text="${#numbers.formatDecimal(custo.custoEquipamentoApoioDollar, 0, 'DEFAULT', 2, 'DEFAULT')}"></td>
+                                </tr>                                
+                                <tr>
+                                    <td>Custo Operadores Principais</td>
+                                    <td  class="text-right" th:text="${#numbers.formatDecimal(custo.custoOperadorPrincipalReal, 0, 'DEFAULT', 2, 'DEFAULT')}"></td>
+                                    <td  class="text-right" th:text="${#numbers.formatDecimal(custo.custoOperadorPrincipalDollar, 0, 'DEFAULT', 2, 'DEFAULT')}"></td>
+                                </tr>                                
+                                <tr>
+                                    <td>Custo Operadores Ajudantes</td>
+                                    <td  class="text-right" th:text="${#numbers.formatDecimal(custo.custoOperadorAjudanteReal, 0, 'DEFAULT', 2, 'DEFAULT')}"></td>
+                                    <td  class="text-right" th:text="${#numbers.formatDecimal(custo.custoOperadorAjudanteDollar, 0, 'DEFAULT', 2, 'DEFAULT')}"></td>
+                                </tr>                                
+                                <tr>
+                                    <td>Custo Produtos</td>
+                                    <td  class="text-right" th:text="${#numbers.formatDecimal(custo.custoProdutoReal, 0, 'DEFAULT', 2, 'DEFAULT')}"></td>
+                                    <td  class="text-right" th:text="${#numbers.formatDecimal(custo.custoProdutoDollar, 0, 'DEFAULT', 2, 'DEFAULT')}"></td>
+                                </tr> 
+                                
+                                <tr>
+                                    <td class="font-weight-bold">Total</td>
+                                    <td class="font-weight-bold text-right" th:text="${#numbers.formatDecimal(custo.somaReal(), 0, 'DEFAULT', 2, 'DEFAULT')}"></td>
+                                    <td class="font-weight-bold text-right"  th:text="${#numbers.formatDecimal(custo.somaDollar(), 0, 'DEFAULT', 2, 'DEFAULT')}"></td>
+                                </tr> 
+                                
+                            </table>                            
+                        </div>           
+                    </div>
+                </div> 
+            </div>
+        </div>    
+        <script th:replace="Layout :: jquery"></script>
+        <script th:replace="Layout :: popper"></script>
+        <script th:replace="Layout :: bootstrap"></script>
+        <script th:replace="Layout :: js"></script>
+    </body>
+</html>
